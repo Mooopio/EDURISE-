@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
 <title>EduRise Academy | أكاديمية التعليم الرقمي المتكاملة للأطفال</title>
-<meta name="description" content="أكاديمية EduRise - منصة تعليمية رائدة للأطفال: برمجة، إنجليزي، تأسيس شامل، قرآن وتجويد، حساب ذهني. تعليم أونلاين بأعلى جودة.">
+<meta name="description" content="أكاديمية EduRise - منصة تعليمية رائدة للأطفال: برمجة، إنجليزي، رياضيات، ماث، تأسيس شامل، قرآن وتجويد، حساب ذهني.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
@@ -247,7 +247,7 @@ section {
   font-weight: 800;
   margin-bottom: 15px;
 }
-/* Course Cards - Clean with Emojis */
+/* Course Cards */
 .course-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -313,6 +313,63 @@ section {
   font-size: 11px;
   font-weight: 600;
 }
+/* Math Section */
+.math-section {
+  background: linear-gradient(135deg, #F9F7FE 0%, white 100%);
+}
+.math-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.math-card {
+  background: white;
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 15px 35px rgba(74,44,138,0.08);
+  transition: 0.3s;
+  border: 1px solid rgba(74,44,138,0.08);
+  text-align: center;
+}
+.math-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--gold);
+}
+.math-icon {
+  font-size: 58px;
+  margin-bottom: 15px;
+}
+.math-card h3 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--purple);
+  margin-bottom: 10px;
+}
+.math-price {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--gold);
+  margin: 15px 0;
+}
+.math-features {
+  text-align: right;
+  margin-top: 15px;
+}
+.math-features li {
+  list-style: none;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+}
+.math-features li::before {
+  content: "✓";
+  color: var(--gold);
+  font-weight: 900;
+}
 /* Levels Showcase */
 .levels-showcase {
   background: var(--gray-bg);
@@ -360,7 +417,6 @@ section {
   border-right: 5px solid var(--gold);
 }
 .level-item h4 { font-size: 18px; font-weight: 800; margin-bottom: 8px; color: var(--purple); }
-.level-item p { color: var(--gray-text); font-size: 14px; }
 /* Pricing */
 .pricing-table {
   background: var(--gray-bg);
@@ -427,7 +483,7 @@ footer {
   text-align: center;
   padding: 40px 5%;
 }
-/* ===== FULL RESPONSIVE ===== */
+/* Responsive */
 @media (max-width: 1024px) {
   .hero-text h1 { font-size: 42px; }
   .section-title { font-size: 36px; }
@@ -446,48 +502,23 @@ footer {
     transform: translateY(-150%);
     transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     box-shadow: 0 20px 30px rgba(0,0,0,0.1);
-    border-bottom: 2px solid rgba(74,44,138,0.1);
     z-index: 999;
   }
   .nav-links.active { transform: translateY(0); }
-  .nav-links a { font-size: 16px; padding: 8px 0; text-align: center; }
-  .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 35px; }
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
   .hero-text h1 { font-size: 34px; }
-  .hero-text p { font-size: 15px; }
-  .hero-buttons { justify-content: center; }
-  .hero-card { max-width: 450px; margin: 0 auto; }
   .section-title { font-size: 30px; }
-  .program-grid { grid-template-columns: 1fr; }
-  .course-cards { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; text-align: center; gap: 35px; }
-  .contact-grid .btn-primary { justify-content: center; display: inline-flex; margin: 0 auto; }
-  .pricing-grid { grid-template-columns: 1fr; }
-  .level-tabs { justify-content: center; }
-  .level-list { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; text-align: center; }
 }
 @media (max-width: 600px) {
-  nav { height: 68px; padding: 0 4%; }
+  nav { height: 68px; }
   .logo img { width: 42px; height: 42px; }
   .logo-text h1 { font-size: 18px; }
-  .logo-text p { font-size: 8px; }
   .hero { padding: 95px 4% 50px; }
   .hero-text h1 { font-size: 28px; }
   .btn-primary, .btn-secondary { padding: 12px 24px; font-size: 14px; width: 100%; justify-content: center; }
   .section-title { font-size: 26px; }
-  .program-card { padding: 20px; }
-  .program-card h3 { font-size: 20px; }
-  .program-icon-emoji { font-size: 48px; }
   .course-header-emoji { font-size: 48px; padding: 20px; }
-  .course-content h3 { font-size: 22px; }
-  .price-amount { font-size: 28px; }
-  .price-header { padding: 18px; }
-  .price-features { padding: 18px; }
-  .tab-btn { padding: 6px 16px; font-size: 12px; }
-}
-@media (max-width: 480px) {
-  .hero-text h1 { font-size: 24px; }
-  .section-title { font-size: 24px; }
-  .levels-showcase { padding: 20px; }
 }
 @keyframes fade {
   from { opacity: 0; transform: translateY(10px); }
@@ -508,7 +539,7 @@ footer {
 <body>
 <nav>
   <a href="#" class="logo">
-    <img src="Copy of Edu Rise-logo-02.png" alt="EduRise Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+    <img src="Copy of Edu Rise-logo-02.png" alt="EduRise Logo" onerror="this.style.display='none';">
     <div class="logo-text">
       <h1><span class="edu">Edu</span><span class="rise">Rise</span></h1>
       <p>أكاديمية التعليم الرقمي</p>
@@ -517,7 +548,8 @@ footer {
   <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="#home">الرئيسية</a></li>
-    <li><a href="#programs">برنامج التأسيس</a></li>
+    <li><a href="#programs">التأسيس</a></li>
+    <li><a href="#math">الرياضيات</a></li>
     <li><a href="#courses">الكورسات</a></li>
     <li><a href="#pricing">الأسعار</a></li>
     <li><a href="#contact" class="nav-cta">📞 تواصل معنا</a></li>
@@ -528,8 +560,8 @@ footer {
   <div class="hero-grid">
     <div class="hero-text">
       <div class="offer-badge-small">🏆 الأكاديمية الرقمية الأولى للأطفال</div>
-      <h1>تعلّم <span class="gold-text">البرمجة</span> و<br><span class="gold-text">التأسيس الشامل</span> وارتقِ بمستقبلك 🚀</h1>
-      <p>أكاديمية EduRise - رحلة تعليمية متكاملة للأطفال من 3 إلى 14 سنة. برمجة، إنجليزي، تأسيس عربي، قرآن وتجويد، حساب ذهني. كل ذلك في منصة واحدة بأعلى جودة.</p>
+      <h1>تعلّم <span class="gold-text">البرمجة</span> و<br><span class="gold-text">الرياضيات</span> وارتقِ بمستقبلك 🚀</h1>
+      <p>أكاديمية EduRise - رحلة تعليمية متكاملة للأطفال من 3 إلى 14 سنة. برمجة، إنجليزي، رياضيات، ماث، تأسيس عربي، قرآن وتجويد، حساب ذهني.</p>
       <div class="hero-buttons">
         <a href="https://api.whatsapp.com/send/?phone=201026128217" target="_blank" class="btn-primary">📲 ابدأ الآن</a>
         <a href="#programs" class="btn-secondary">🎓 اكتشف البرامج</a>
@@ -538,7 +570,7 @@ footer {
     <div class="hero-card">
       <div class="offer-badge-small" style="background:rgba(232,185,35,0.2); color:var(--gold);">🎁 عرض حصري</div>
       <h3 style="color:white; font-size:24px;">إنجليزي + برمجة</h3>
-      <p style="color:rgba(255,255,255,0.8); margin:15px 0;">اشترك في كورس الإنجليزي واحصل على مستوى برمجة مجاناً - بسعر واحد فقط</p>
+      <p style="color:rgba(255,255,255,0.8); margin:15px 0;">اشترك في كورس الإنجليزي واحصل على مستوى برمجة مجاناً</p>
       <div style="background: var(--gold); border-radius: 20px; padding: 15px; text-align:center; color:var(--dark);">
         <span style="font-size:28px; font-weight:900;">2,500 ج</span>
         <span style="text-decoration:line-through; margin-right:10px;">5,000 ج</span>
@@ -553,51 +585,76 @@ footer {
   <div class="section-header animate-in">
     <div class="section-tag">🌟 برنامجنا المميز</div>
     <h2 class="section-title">برنامج <span>تأسيس الطفل</span> الشامل</h2>
-    <p style="max-width:800px; margin:15px auto; color:var(--gray-text);">من عمر 3 إلى 10 سنوات - بناء قاعدة معرفية قوية في اللغة العربية، الإنجليزية، الحساب الذهني، والقرآن الكريم بالتجويد.</p>
+    <p style="max-width:800px; margin:15px auto; color:var(--gray-text);">من عمر 3 إلى 10 سنوات - بناء قاعدة معرفية قوية في اللغة العربية، الإنجليزية، الحساب الذهني، والقرآن الكريم.</p>
   </div>
   <div class="program-grid animate-in">
-    <div class="program-card"><div class="program-icon-emoji">📖</div><h3>تأسيس اللغة العربية</h3><div class="level-badge">نور البيان</div><p>الوعي الصوتي، مخارج الحروف، القراءة المبكرة، الكتابة من الحروف إلى الجمل، التأسيس الإملائي وفق منهج نور البيان بالطريقة النورانية.</p></div>
+    <div class="program-card"><div class="program-icon-emoji">📖</div><h3>تأسيس اللغة العربية</h3><div class="level-badge">نور البيان</div><p>الوعي الصوتي، مخارج الحروف، القراءة المبكرة، الكتابة من الحروف إلى الجمل، التأسيس الإملائي وفق منهج نور البيان.</p></div>
     <div class="program-card"><div class="program-icon-emoji">🇬🇧</div><h3>تأسيس اللغة الإنجليزية</h3><div class="level-badge">Phonics</div><p>الحروف الإنجليزية ونطقها الصحيح، القراءة المبكرة، تكوين مفردات أساسية، بناء جمل وتراكيب بسيطة بأسلوب تفاعلي.</p></div>
-    <div class="program-card"><div class="program-icon-emoji">🧠</div><h3>الحساب الذهني</h3><div class="level-badge">Mental Math</div><p>فهم الأعداد وخصائصها، العمليات الأساسية (جمع - طرح)، استراتيجيات ذهنية لتنمية سرعة التفكير وحل المشكلات.</p></div>
+    <div class="program-card"><div class="program-icon-emoji">🧮</div><h3>الحساب الذهني</h3><div class="level-badge">Mental Math</div><p>فهم الأعداد وخصائصها، العمليات الأساسية (جمع - طرح)، استراتيجيات ذهنية لتنمية سرعة التفكير وحل المشكلات.</p></div>
     <div class="program-card"><div class="program-icon-emoji">🕋</div><h3>القرآن الكريم والتجويد</h3><div class="level-badge">تلاوة صحيحة</div><p>تحسين مخارج الحروف، أحكام التجويد الأساسية، حفظ سور قصيرة، قراءة قرآنية صحيحة مبسطة مع متابعة فردية.</p></div>
   </div>
 </section>
 
-<!-- كورسات البرمجة والإنجليزي - منظمة بشكل احترافي -->
+<!-- قسم الرياضيات والماث لكل المراحل -->
+<section id="math" class="math-section">
+  <div class="section-header animate-in">
+    <div class="section-tag">📐 الرياضيات والماث</div>
+    <h2 class="section-title">كورسات <span>الرياضيات</span> و <span>الماث</span> لجميع المراحل</h2>
+    <p style="max-width:700px; margin:10px auto;">تأسيس قوي في الرياضيات بالعربية والإنجليزية - مناهج مصرية ودولية</p>
+  </div>
+  <div class="math-grid animate-in">
+    <!-- Math Arabic Primary -->
+    <div class="math-card"><div class="math-icon">📊</div><h3>رياضيات - المرحلة الابتدائية</h3><div class="level-badge" style="background:var(--gold);">عربي - خاص/مجموعات</div><div class="math-price">250 - 600 ج / شهر</div><ul class="math-features"><li>من الصف الأول إلى السادس الابتدائي</li><li>تأسيس قوي في الأعداد والعمليات</li><li>الكسور، القياس، الهندسة</li><li>حل المشكلات والتفكير المنطقي</li><li>حصتين أسبوعياً - متابعة فردية</li></ul></div>
+    <!-- Math English Primary -->
+    <div class="math-card"><div class="math-icon">📐</div><h3>Math - Primary Stage</h3><div class="level-badge" style="background:var(--gold);">English - International</div><div class="math-price">250 - 600 ج / month</div><ul class="math-features"><li>Grade 1 to 6 (Cambridge/IB Curriculum)</li><li>Numbers, Operations, Fractions</li><li>Geometry, Measurement, Data Analysis</li><li>Problem Solving & Critical Thinking</li><li>2 sessions per week - Full support</li></ul></div>
+    <!-- Math Arabic Preparatory -->
+    <div class="math-card"><div class="math-icon">🧮</div><h3>رياضيات - المرحلة الإعدادية</h3><div class="level-badge" style="background:var(--gold);">عربي - خاص/مجموعات</div><div class="math-price">300 - 600 ج / شهر</div><ul class="math-features"><li>الصف الأول إلى الثالث الإعدادي</li><li>الجبر، الهندسة، الإحصاء</li><li>المعادلات والدوال</li><li>تحضير امتحانات الشهادة الإعدادية</li><li>حصتين أسبوعياً - مراجعات مكثفة</li></ul></div>
+    <!-- Math English Preparatory -->
+    <div class="math-card"><div class="math-icon">📈</div><h3>Math - Preparatory Stage</h3><div class="level-badge" style="background:var(--gold);">English - International</div><div class="math-price">300 - 600 ج / month</div><ul class="math-features"><li>Grade 7 to 9 (IGCSE/IB/ American)</li><li>Algebra, Geometry, Trigonometry</li><li>Equations, Functions, Statistics</li><li>Exam Preparation & Past Papers</li><li>2 sessions per week - Individual attention</li></ul></div>
+  </div>
+  <div style="text-align:center; margin-top:40px;">
+    <div style="background: var(--purple-soft); border-radius: 28px; padding: 25px; max-width: 800px; margin: 0 auto;">
+      <h3 style="color:var(--purple); font-size:22px;">🎯 مميزات كورسات الرياضيات والماث في EduRise</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
+        <div><span style="color:var(--gold);">✓</span> مناهج مصرية محدثة</div>
+        <div><span style="color:var(--gold);">✓</span> مناهج دولية (IGCSE - IB - American)</div>
+        <div><span style="color:var(--gold);">✓</span> تدريبات تفاعلية وحل المشكلات</div>
+        <div><span style="color:var(--gold);">✓</span> متابعة أسبوعية مع تقارير</div>
+        <div><span style="color:var(--gold);">✓</span> معلمين متخصصين في الرياضيات</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- كورسات البرمجة والإنجليزي -->
 <section id="courses">
   <div class="section-header animate-in">
     <div class="section-tag">🎯 أكاديمية الاحتراف</div>
     <h2 class="section-title">أفضل <span>كورسات البرمجة</span> و <span>اللغة الإنجليزية</span></h2>
-    <p style="max-width:700px; margin:10px auto;">مناهج معتمدة من MIT - CEFR - تعلم حقيقي بمشاريع عملية وشهادات معتمدة</p>
+    <p>مناهج معتمدة من MIT - CEFR - تعلم حقيقي بمشاريع عملية</p>
   </div>
   <div class="course-cards animate-in">
-    <!-- English Course -->
-    <div class="course-card"><div class="course-header-emoji">🇬🇧</div><div class="course-content"><h3>English Course</h3><div class="course-badge">16 مستوى معتمد CEFR</div><p class="course-desc">رحلة شاملة من الصفر للاحتراف في اللغة الإنجليزية. مستويات Foundation, Beginner, Intermediate, Advanced, Expert. كل مستوى 16 ساعة تدريبية، جلستان أسبوعياً.</p><div class="course-levels"><span class="level-tag">Listening</span><span class="level-tag">Speaking</span><span class="level-tag">Reading</span><span class="level-tag">Writing</span><span class="level-tag">Phonics</span></div><a href="#english-details" style="color:var(--gold); font-weight:700; margin-top:15px; display:inline-block;">📖 عرض تفاصيل المستويات ↓</a></div></div>
-    <!-- Scratch -->
-    <div class="course-card"><div class="course-header-emoji">🐱</div><div class="course-content"><h3>Scratch</h3><div class="course-badge">3 مستويات - MIT</div><p class="course-desc">البرمجة المرئية من معهد MIT. اكتشف عالم البرمجة من خلال الألعاب والقصص التفاعلية. مناسب للأطفال 7-12 سنة.</p><div class="course-levels"><span class="level-tag">Beginner</span><span class="level-tag">Intermediate</span><span class="level-tag">Advanced</span><span class="level-tag">ألعاب</span><span class="level-tag">قصص متحركة</span></div></div></div>
-    <!-- Python -->
-    <div class="course-card"><div class="course-header-emoji">🐍</div><div class="course-content"><h3>Python</h3><div class="course-badge">5 مستويات - لغة المستقبل</div><p class="course-desc">تعلم أقوى لغات البرمجة من الصفر إلى الاحتراف. مشاريع حقيقية، ألعاب، تطبيقات، وتحليل بيانات. شهادة مبرمج صغير محترف.</p><div class="course-levels"><span class="level-tag">Beginner</span><span class="level-tag">Intermediate</span><span class="level-tag">Advanced</span><span class="level-tag">Expert</span><span class="level-tag">Master</span></div></div></div>
-    <!-- MIT App Inventor -->
-    <div class="course-card"><div class="course-header-emoji">📱</div><div class="course-content"><h3>MIT App Inventor</h3><div class="course-badge">3 مستويات - تطبيقات حقيقية</div><p class="course-desc">اصنع تطبيقات Android حقيقية باستخدام البلوك كودينج. تعلم أساسيات تصميم التطبيقات ودمج المستشعرات والبيانات.</p><div class="course-levels"><span class="level-tag">Build First App</span><span class="level-tag">Sensors</span><span class="level-tag">Multi-Screen</span><span class="level-tag">API</span></div></div></div>
-    <!-- Web Design -->
-    <div class="course-card"><div class="course-header-emoji">🌐</div><div class="course-content"><h3>Web Design</h3><div class="course-badge">4 مستويات - تصميم مواقع</div><p class="course-desc">تعلم HTML, CSS, JavaScript من الصفر. اصنع موقعك الخاص على الإنترنت وارفعه على GitHub Pages. مشاريع عملية واحترافية.</p><div class="course-levels"><span class="level-tag">HTML</span><span class="level-tag">CSS</span><span class="level-tag">JavaScript</span><span class="level-tag">GitHub Pages</span></div></div></div>
+    <div class="course-card"><div class="course-header-emoji">🇬🇧</div><div class="course-content"><h3>English Course</h3><div class="course-badge">16 مستوى معتمد CEFR</div><p class="course-desc">رحلة شاملة من الصفر للاحتراف. مستويات Foundation, Beginner, Intermediate, Advanced, Expert. كل مستوى 16 ساعة تدريبية.</p><div class="course-levels"><span class="level-tag">Listening</span><span class="level-tag">Speaking</span><span class="level-tag">Reading</span><span class="level-tag">Writing</span></div><a href="#english-details" style="color:var(--gold); font-weight:700; margin-top:15px; display:inline-block;">📖 تفاصيل المستويات ↓</a></div></div>
+    <div class="course-card"><div class="course-header-emoji">🐱</div><div class="course-content"><h3>Scratch</h3><div class="course-badge">3 مستويات - MIT</div><p class="course-desc">البرمجة المرئية من معهد MIT. اكتشف عالم البرمجة من خلال الألعاب والقصص التفاعلية. مناسب للأطفال 7-12 سنة.</p><div class="course-levels"><span class="level-tag">Beginner</span><span class="level-tag">Intermediate</span><span class="level-tag">Advanced</span></div></div></div>
+    <div class="course-card"><div class="course-header-emoji">🐍</div><div class="course-content"><h3>Python</h3><div class="course-badge">5 مستويات - لغة المستقبل</div><p class="course-desc">تعلم أقوى لغات البرمجة من الصفر إلى الاحتراف. مشاريع حقيقية، ألعاب، تطبيقات، وشهادة مبرمج صغير محترف.</p><div class="course-levels"><span class="level-tag">Beginner</span><span class="level-tag">Intermediate</span><span class="level-tag">Advanced</span><span class="level-tag">Expert</span><span class="level-tag">Master</span></div></div></div>
+    <div class="course-card"><div class="course-header-emoji">📱</div><div class="course-content"><h3>MIT App Inventor</h3><div class="course-badge">3 مستويات - تطبيقات حقيقية</div><p class="course-desc">اصنع تطبيقات Android حقيقية باستخدام البلوك كودينج. تعلم أساسيات تصميم التطبيقات ودمج المستشعرات.</p><div class="course-levels"><span class="level-tag">First App</span><span class="level-tag">Sensors</span><span class="level-tag">Multi-Screen</span></div></div></div>
+    <div class="course-card"><div class="course-header-emoji">🌐</div><div class="course-content"><h3>Web Design</h3><div class="course-badge">4 مستويات - تصميم مواقع</div><p class="course-desc">تعلم HTML, CSS, JavaScript من الصفر. اصنع موقعك الخاص على الإنترنت وارفعه على GitHub Pages.</p><div class="course-levels"><span class="level-tag">HTML</span><span class="level-tag">CSS</span><span class="level-tag">JavaScript</span><span class="level-tag">GitHub</span></div></div></div>
   </div>
 
-  <!-- English Levels Details -->
   <div id="english-details" class="levels-showcase animate-in">
     <h3 style="font-size:28px; margin-bottom:15px; text-align:center;">📖 تفاصيل مستويات <span class="text-gold">اللغة الإنجليزية</span> (16 مستوى)</h3>
     <div class="level-tabs" id="engTabs">
-      <button class="tab-btn active" data-tab="foundation">Foundation (1-2)</button>
-      <button class="tab-btn" data-tab="beginner">Beginner (1-4)</button>
-      <button class="tab-btn" data-tab="intermediate">Intermediate (1-4)</button>
-      <button class="tab-btn" data-tab="advanced">Advanced (1-4)</button>
-      <button class="tab-btn" data-tab="expert">Expert (1-2)</button>
+      <button class="tab-btn active" data-tab="foundation">Foundation</button>
+      <button class="tab-btn" data-tab="beginner">Beginner</button>
+      <button class="tab-btn" data-tab="intermediate">Intermediate</button>
+      <button class="tab-btn" data-tab="advanced">Advanced</button>
+      <button class="tab-btn" data-tab="expert">Expert</button>
     </div>
-    <div id="foundation" class="tab-content active"><div class="level-list"><div class="level-item"><h4>Foundation 1</h4><p>الأبجدية، الأرقام 1-10، الألوان، الأشكال، عبارات تحية بسيطة. أغاني تفاعلية وألعاب تعليمية.</p></div><div class="level-item"><h4>Foundation 2</h4><p>أجزاء الجسم (Body Parts)، الحيوانات الأليفة (Pets)، عبارات "This is..."، تمييز الأصوات، تمثيل الأدوار.</p></div></div></div>
-    <div id="beginner" class="tab-content"><div class="level-list"><div class="level-item"><h4>Beginner 1 & 2</h4><p>العائلة (Family)، الطعام (Food)، الروتين اليومي (Daily Routines)، الألعاب (Toys). تكوين جمل بسيطة Subject-Verb، أسئلة أساسية.</p></div><div class="level-item"><h4>Beginner 3 & 4</h4><p>المدرسة (School)، الأماكن (Places)، الهوايات (Hobbies)، الطقس (Weather). المضارع البسيط (Present Simple)، كتابة كلمات وجمل قصيرة، محادثات يومية.</p></div></div></div>
-    <div id="intermediate" class="tab-content"><div class="level-list"><div class="level-item"><h4>Intermediate 1 & 2</h4><p>الرياضة (Sports)، السفر (Travel)، البيئة (Environment)، التكنولوجيا (Technology). الماضي البسيط (Past Simple)، المقارنات (Comparatives)، قراءة نصوص.</p></div><div class="level-item"><h4>Intermediate 3 & 4</h4><p>القصص (Stories)، العواطف (Emotions)، الثقافة (Culture)، الصحة (Health). المستقبل البسيط (Future Simple)، الجمل الشرطية (Conditionals)، مناقشات جماعية.</p></div></div></div>
-    <div id="advanced" class="tab-content"><div class="level-list"><div class="level-item"><h4>Advanced 1 & 2</h4><p>العلوم (Science)، التاريخ (History)، الاقتصاد (Economy)، الفنون (Arts). المبني للمجهول (Passives)، أسماء الموصول (Relatives)، تحليل نصوص، كتابة إقناعية.</p></div><div class="level-item"><h4>Advanced 3 & 4</h4><p>السياسة (Politics)، الأدب (Literature)، الأعمال (Business)، الإعلام (Media). الأفعال المساعدة (Modals)، الجمل المعقدة (Complex Sentences)، مناظرات رسمية.</p></div></div></div>
-    <div id="expert" class="tab-content"><div class="level-list"><div class="level-item"><h4>Expert 1 & 2</h4><p>القانون (Law)، الفلسفة (Philosophy)، الابتكار (Innovation)، القيادة (Leadership). تراكيب متقدمة، مشاريع بحثية، شهادة إتقان معتمدة.</p></div></div></div>
+    <div id="foundation" class="tab-content active"><div class="level-list"><div class="level-item"><h4>Foundation 1-2</h4><p>الأبجدية، الأرقام، الألوان، الأشكال، Body Parts, Pets، عبارات تحية بسيطة.</p></div></div></div>
+    <div id="beginner" class="tab-content"><div class="level-list"><div class="level-item"><h4>Beginner 1-4</h4><p>Family, Food, Daily Routines, School, Places, Hobbies, Weather. Present Simple، محادثات يومية.</p></div></div></div>
+    <div id="intermediate" class="tab-content"><div class="level-list"><div class="level-item"><h4>Intermediate 1-4</h4><p>Sports, Travel, Environment, Technology, Stories, Culture, Health. Past Simple, Future, Conditionals.</p></div></div></div>
+    <div id="advanced" class="tab-content"><div class="level-list"><div class="level-item"><h4>Advanced 1-4</h4><p>Science, History, Economy, Arts, Politics, Literature. Passives, Relatives, Modals, Complex Sentences.</p></div></div></div>
+    <div id="expert" class="tab-content"><div class="level-list"><div class="level-item"><h4>Expert 1-2</h4><p>Law, Philosophy, Innovation, Leadership. Advanced Structures, Research Projects, Mastery Certificate.</p></div></div></div>
   </div>
 </section>
 
@@ -606,15 +663,15 @@ footer {
   <div class="section-header animate-in">
     <div class="section-tag">💰 باقات مرنة</div>
     <h2 class="section-title">اختر <span>الباقة المناسبة</span> لعائلتك</h2>
-    <p>أسعار شفافة - خصومات للمجموعات - جودة عالية بلا منافس</p>
+    <p>أسعار شفافة - خصومات للمجموعات - جودة عالية</p>
   </div>
   <div class="pricing-table animate-in">
     <div class="pricing-grid">
-      <div class="price-card"><div class="price-header gold"><div class="price-amount">2,500 ج</div><p>/ مستوى (إنجليزي + برمجة)</p></div><div class="price-features"><ul><li>مستوى إنجليزي كامل (16 ساعة)</li><li>مستوى برمجة مجاناً (Scratch/Python/App/Web)</li><li>شهادة معتمدة</li><li>تقارير أسبوعية</li></ul></div></div>
-      <div class="price-card"><div class="price-header"><div class="price-amount">600 ج</div><p>/ شهر - خاص فردي (ابتدائي/إعدادي)</p></div><div class="price-features"><ul><li>مادة واحدة: عربي / دراسات / علوم / إنجليزي OL/AL / ساينس</li><li>من 1 إلى 2 طالب</li><li>حصتين أسبوعياً</li><li>متابعة شخصية كاملة</li></ul></div></div>
-      <div class="price-card"><div class="price-header"><div class="price-amount">250 ج</div><p>/ شهر - مجموعات ابتدائي</p></div><div class="price-features"><ul><li>عربي / دراسات / علوم / إنجليزي OL/AL</li><li>من 5 أطفال فأكثر</li><li>حصتين أسبوعياً</li><li>تعلم جماعي ممتع</li></ul></div></div>
-      <div class="price-card"><div class="price-header"><div class="price-amount">300 ج</div><p>/ شهر - مجموعات إعدادي</p></div><div class="price-features"><ul><li>عربي / دراسات / علوم / إنجليزي OL/AL / ساينس</li><li>من 7 أطفال فأكثر</li><li>حصتين أسبوعياً</li><li>تحضير امتحانات</li></ul></div></div>
-      <div class="price-card"><div class="price-header gold"><div class="price-amount">1,700 - 2,400 ج</div><p>/ شهر - المدرسة اليومية</p></div><div class="price-features"><ul><li>ابتدائي عربي 1,700 ج / ابتدائي لغات 1,900 ج</li><li>إعدادي عربي 2,200 ج / إعدادي لغات 2,400 ج</li><li>جميع المواد يومياً (صباحاً أو مساءً)</li><li>من 7 أطفال فأكثر</li></ul></div></div>
+      <div class="price-card"><div class="price-header gold"><div class="price-amount">2,500 ج</div><p>/ مستوى (إنجليزي + برمجة)</p></div><div class="price-features"><ul><li>مستوى إنجليزي كامل (16 ساعة)</li><li>مستوى برمجة مجاناً</li><li>شهادة معتمدة</li><li>تقارير أسبوعية</li></ul></div></div>
+      <div class="price-card"><div class="price-header"><div class="price-amount">600 ج</div><p>/ شهر - خاص فردي</p></div><div class="price-features"><ul><li>رياضيات / ماث / عربي / علوم / إنجليزي</li><li>من 1 إلى 2 طالب</li><li>حصتين أسبوعياً</li><li>متابعة شخصية كاملة</li></ul></div></div>
+      <div class="price-card"><div class="price-header"><div class="price-amount">250 ج</div><p>/ شهر - مجموعات ابتدائي</p></div><div class="price-features"><ul><li>رياضيات / عربي / علوم / إنجليزي</li><li>من 5 أطفال فأكثر</li><li>حصتين أسبوعياً</li><li>تعلم جماعي ممتع</li></ul></div></div>
+      <div class="price-card"><div class="price-header"><div class="price-amount">300 ج</div><p>/ شهر - مجموعات إعدادي</p></div><div class="price-features"><ul><li>رياضيات / ماث / علوم / إنجليزي</li><li>من 7 أطفال فأكثر</li><li>حصتين أسبوعياً</li><li>تحضير امتحانات</li></ul></div></div>
+      <div class="price-card"><div class="price-header gold"><div class="price-amount">1,700 - 2,400 ج</div><p>/ شهر - المدرسة اليومية</p></div><div class="price-features"><ul><li>جميع المواد (عربي - إنجليزي - رياضيات - ماث - علوم)</li><li>ابتدائي عربي 1,700 / لغات 1,900</li><li>إعدادي عربي 2,200 / لغات 2,400</li><li>يومياً صباحاً أو مساءً</li></ul></div></div>
     </div>
   </div>
   <div style="text-align:center; margin-top:40px;">
@@ -625,26 +682,24 @@ footer {
 <!-- تواصل -->
 <section class="contact-section" id="contact">
   <div class="contact-grid">
-    <div><h2 style="color:white; font-size:38px;">جاهز تبدأ الرحلة؟</h2><p style="color:rgba(255,255,255,0.8); margin:20px 0;">سجل طفلك اليوم في أفضل أكاديمية تعليم رقمي واستقبل مستقبله.</p>
-    <div style="display:flex; gap:15px; flex-wrap:wrap; justify-content:flex-start;"><a href="https://api.whatsapp.com/send/?phone=201026128217" target="_blank" class="btn-primary" style="background:#25D366;">📲 WhatsApp</a><a href="https://www.instagram.com/edu_rise0/" target="_blank" class="btn-primary" style="background:linear-gradient(135deg,#E1306C,#833AB4);">📸 Instagram</a><a href="https://www.facebook.com/edurise2" target="_blank" class="btn-primary" style="background:#1877F2;">👍 Facebook</a></div></div>
+    <div><h2 style="color:white; font-size:38px;">جاهز تبدأ الرحلة؟</h2><p style="color:rgba(255,255,255,0.8); margin:20px 0;">سجل طفلك اليوم في أفضل أكاديمية تعليم رقمي.</p>
+    <div style="display:flex; gap:15px; flex-wrap:wrap;"><a href="https://api.whatsapp.com/send/?phone=201026128217" target="_blank" class="btn-primary" style="background:#25D366;">📲 WhatsApp</a><a href="https://www.instagram.com/edu_rise0/" target="_blank" class="btn-primary" style="background:linear-gradient(135deg,#E1306C,#833AB4);">📸 Instagram</a><a href="https://www.facebook.com/edurise2" target="_blank" class="btn-primary" style="background:#1877F2;">👍 Facebook</a></div></div>
     <div style="background:rgba(255,255,255,0.1); border-radius:32px; padding:30px; text-align:center;"><div style="font-size:64px;">🎓</div><h3 style="color:var(--gold);">استشارة مجانية</h3><p style="color:white;">فريقنا التعليمي ينتظرك للإجابة على كل أسئلتك</p><a href="https://api.whatsapp.com/send/?phone=201026128217" target="_blank" class="btn-primary" style="margin-top:20px; display:inline-block;">📲 تواصل الآن</a></div>
   </div>
 </section>
 
 <footer>
   <div style="font-size:28px; font-weight:900;"><span style="color:var(--purple-light);">Edu</span><span style="color:var(--gold);">Rise</span> Academy</div>
-  <p>© 2025 EduRise Academy - أكاديمية التعليم الرقمي المتكامل - برمجة، إنجليزي، تأسيس شامل، قرآن وتجويد، حساب ذهني - أونلاين 100%</p>
+  <p>© 2025 EduRise Academy - برمجة، إنجليزي، رياضيات، ماث، تأسيس شامل، قرآن وتجويد، حساب ذهني - أونلاين 100%</p>
 </footer>
 
 <script>
-// Mobile menu
 const toggle = document.getElementById('menuToggle');
 const nav = document.getElementById('navLinks');
 if(toggle) {
   toggle.addEventListener('click', () => nav.classList.toggle('active'));
   document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => nav.classList.remove('active')));
 }
-// Tabs for English levels
 const tabs = document.querySelectorAll('#engTabs .tab-btn');
 const contents = document.querySelectorAll('.tab-content');
 tabs.forEach(btn => {
@@ -653,16 +708,13 @@ tabs.forEach(btn => {
     tabs.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     contents.forEach(c => c.classList.remove('active'));
-    const activeContent = document.getElementById(tabId);
-    if(activeContent) activeContent.classList.add('active');
+    document.getElementById(tabId).classList.add('active');
   });
 });
-// Scroll animations
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
-// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     const href = this.getAttribute('href');
