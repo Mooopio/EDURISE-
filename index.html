@@ -2,870 +2,550 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
-<title>EduRise Academy | أكاديمية التعليم الرقمي للأطفال</title>
-<meta name="description" content="أكاديمية EduRise - منصة تعليمية أونلاين رائدة للأطفال في مجال البرمجة واللغة الإنجليزية. كورسات Scratch, Python, App Development, Web Design وإنجليزي بمستويات احترافية.">
-<meta name="keywords" content="تعليم برمجة أطفال, اونلاين, انجليزي للاطفال, Scratch, Python, EduRise, أكاديمية, كورس برمجة">
-<meta property="og:title" content="EduRise Academy | تعلّم وارتقِ">
-<meta property="og:description" content="أكاديمية EduRise للتعليم الرقمي - برمجة وإنجليزي للأطفال أونلاين">
-<meta property="og:type" content="website">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>EduRise Academy | أكاديمية التعليم الرقمي المتكاملة للأطفال</title>
+<meta name="description" content="أكاديمية EduRise - منصة تعليمية رائدة للأطفال: برمجة، إنجليزي، تأسيس شامل، قرآن وتجويد، حساب ذهني. تعليم أونلاين بأعلى جودة.">
+<meta name="keywords" content="تعليم أطفال, برمجة اطفال, انجليزي للاطفال, Scratch, Python, تأسيس اطفال, نور البيان, قرآن تجويد, EduRise">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-/* ===== RESET & GLOBAL ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 :root {
-  --purple: #4A2C8A;
-  --purple-mid: #6B3FA8;
-  --purple-light: #8B5CC8;
-  --purple-soft: #F0EAF8;
+  --purple-dark: #4A2C8A;
+  --purple: #5E2D8C;
+  --purple-light: #7B4AB8;
+  --purple-soft: #F3EFFC;
   --gold: #E8B923;
   --gold-bright: #F4C300;
   --gold-dark: #C49A10;
   --white: #FFFFFF;
   --dark: #1A0F2E;
-  --gray-light: #F8F6FC;
-  --gray: #6B7280;
-  --text: #2D1B5A;
+  --gray-bg: #F9F9FF;
+  --gray-text: #4A5568;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-html { scroll-behavior: smooth; }
 body {
   font-family: 'Cairo', sans-serif;
   background: var(--white);
-  color: var(--text);
+  color: var(--dark);
   overflow-x: hidden;
-  width: 100%;
+  line-height: 1.6;
 }
-/* ===== NAVBAR - FULLY RESPONSIVE WITH HAMBURGER ===== */
+/* Navbar */
 nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
+  top: 0;
+  width: 100%;
   background: rgba(255,255,255,0.98);
-  backdrop-filter: blur(20px);
-  border-bottom: 2px solid rgba(74,44,138,0.1);
+  backdrop-filter: blur(12px);
   padding: 0 5%;
-  height: 72px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 4px 30px rgba(74,44,138,0.08);
+  z-index: 1000;
+  box-shadow: 0 4px 25px rgba(74,44,138,0.08);
 }
-.logo-area {
+.logo {
   display: flex;
   align-items: center;
   gap: 10px;
-  text-decoration: none;
-  z-index: 1001;
 }
-.logo-placeholder {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  overflow: hidden;
+.logo-icon {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, var(--purple), var(--purple-light));
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  background: var(--purple-soft);
+  color: var(--gold);
+  font-size: 24px;
+  font-weight: bold;
 }
-.logo-placeholder img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-.logo-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
-}
-.logo-text span:first-child {
-  font-size: 20px;
+.logo-text h1 {
+  font-size: 24px;
   font-weight: 900;
+  line-height: 1;
 }
 .logo-text .edu { color: var(--purple); }
 .logo-text .rise { color: var(--gold); }
-.logo-text span:last-child {
-  font-size: 9px;
-  color: var(--gray);
-  font-weight: 400;
+.logo-text p {
+  font-size: 10px;
+  color: var(--gray-text);
 }
-/* Desktop Navigation */
 .nav-links {
   display: flex;
   gap: 28px;
   list-style: none;
-  align-items: center;
-  transition: all 0.3s ease;
 }
 .nav-links a {
   text-decoration: none;
-  color: var(--text);
+  color: var(--dark);
   font-weight: 600;
-  font-size: 14px;
-  position: relative;
-  transition: color 0.3s;
-  white-space: nowrap;
+  transition: 0.3s;
 }
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -3px;
-  right: 0;
-  width: 0;
-  height: 2px;
-  background: var(--gold);
-  transition: width 0.3s;
-}
-.nav-links a:hover { color: var(--purple); }
-.nav-links a:hover::after { width: 100%; }
+.nav-links a:hover { color: var(--gold); }
 .nav-cta {
-  background: linear-gradient(135deg, var(--purple), var(--purple-mid));
+  background: linear-gradient(135deg, var(--purple), var(--purple-light));
   color: white !important;
-  padding: 10px 24px;
-  border-radius: 50px;
-  font-weight: 700 !important;
-  transition: transform 0.2s, box-shadow 0.2s !important;
-  box-shadow: 0 4px 15px rgba(74,44,138,0.3);
+  padding: 10px 28px;
+  border-radius: 40px;
+  box-shadow: 0 6px 20px rgba(74,44,138,0.3);
 }
-.nav-cta::after { display: none !important; }
-.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(74,44,138,0.4) !important; color: white !important; }
-/* Hamburger Menu Button - Mobile Only */
 .menu-toggle {
   display: none;
+  flex-direction: column;
+  gap: 6px;
   background: none;
   border: none;
   cursor: pointer;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  z-index: 1001;
-  background: rgba(74,44,138,0.08);
-  transition: all 0.3s;
 }
 .menu-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
+  width: 28px;
+  height: 3px;
   background: var(--purple);
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  border-radius: 3px;
 }
-.menu-toggle.active span:nth-child(1) {
-  transform: rotate(45deg) translate(6px, 6px);
-}
-.menu-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-.menu-toggle.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-/* ===== HERO ===== */
+/* Hero */
 .hero {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #1A0F2E 0%, #2D1B5A 40%, #4A2C8A 70%, #6B3FA8 100%);
-  display: flex;
-  align-items: center;
+  background: linear-gradient(120deg, var(--purple-dark) 0%, var(--purple) 50%, var(--purple-light) 100%);
+  padding: 130px 5% 80px;
   position: relative;
   overflow: hidden;
-  padding: 100px 5% 70px;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -20%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(232,185,35,0.15) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: -30%;
-  right: -10%;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(139,92,200,0.3) 0%, transparent 70%);
-  border-radius: 50%;
-}
-.floating-shapes { position: absolute; inset: 0; pointer-events: none; }
-.shape {
-  position: absolute;
-  border-radius: 50%;
-  animation: float 6s ease-in-out infinite;
-}
-.shape-1 { width: 80px; height: 80px; background: rgba(232,185,35,0.2); top: 15%; right: 10%; animation-delay: 0s; }
-.shape-2 { width: 50px; height: 50px; background: rgba(255,255,255,0.1); top: 60%; right: 25%; animation-delay: 1s; }
-.shape-3 { width: 120px; height: 120px; background: rgba(139,92,200,0.2); bottom: 20%; left: 5%; animation-delay: 2s; }
-.shape-4 { width: 40px; height: 40px; background: rgba(232,185,35,0.3); top: 40%; left: 15%; animation-delay: 3s; }
-@keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(10deg); }
 }
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
   align-items: center;
-  position: relative;
-  z-index: 2;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
-  width: 100%;
 }
-.hero-text { color: white; }
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(232,185,35,0.2);
-  border: 1px solid rgba(232,185,35,0.4);
-  color: var(--gold);
-  padding: 8px 18px;
-  border-radius: 50px;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 24px;
-}
-.hero-badge::before { content: '⭐'; }
-.hero-title {
-  font-size: 48px;
+.hero-text h1 {
+  font-size: 52px;
   font-weight: 900;
+  color: white;
   line-height: 1.2;
-  margin-bottom: 20px;
 }
-.hero-title .highlight { color: var(--gold); }
-.hero-subtitle {
-  font-size: 17px;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.8);
-  margin-bottom: 36px;
-  font-weight: 400;
+.hero-text .gold-text { color: var(--gold); }
+.hero-text p {
+  font-size: 18px;
+  color: rgba(255,255,255,0.9);
+  margin: 20px 0 30px;
 }
 .hero-buttons {
   display: flex;
-  gap: 16px;
+  gap: 18px;
   flex-wrap: wrap;
 }
 .btn-primary {
-  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  background: var(--gold);
   color: var(--dark);
-  padding: 14px 32px;
+  padding: 14px 36px;
   border-radius: 50px;
   font-weight: 800;
-  font-size: 16px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 6px 25px rgba(232,185,35,0.5);
-  font-family: 'Cairo', sans-serif;
-  cursor: pointer;
-  border: none;
+  transition: 0.3s;
+  box-shadow: 0 8px 20px rgba(232,185,35,0.4);
 }
-.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 35px rgba(232,185,35,0.6); }
 .btn-secondary {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
   color: white;
-  padding: 14px 32px;
+  padding: 14px 36px;
   border-radius: 50px;
   font-weight: 700;
-  font-size: 16px;
   text-decoration: none;
-  border: 2px solid rgba(255,255,255,0.3);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.2s;
-  font-family: 'Cairo', sans-serif;
-  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.3);
 }
-.btn-secondary:hover { background: rgba(255,255,255,0.2); border-color: white; }
-.hero-stats {
-  display: flex;
-  gap: 30px;
-  margin-top: 36px;
-  flex-wrap: wrap;
-}
-.stat { text-align: center; }
-.stat-number { font-size: 28px; font-weight: 900; color: var(--gold); }
-.stat-label { font-size: 12px; color: rgba(255,255,255,0.7); font-weight: 400; }
-.hero-visual { position: relative; }
 .hero-card {
-  background: rgba(255,255,255,0.1);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 28px;
-  padding: 28px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(16px);
+  border-radius: 32px;
+  padding: 30px;
+  border: 1px solid rgba(255,255,255,0.25);
 }
-.hero-card-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 24px;
-}
-.hero-card-icon {
-  width: 56px;
-  height: 56px;
-  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-}
-.hero-card-title { color: white; font-size: 20px; font-weight: 800; }
-.hero-card-sub { color: rgba(255,255,255,0.6); font-size: 12px; }
-.course-pills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.offer-badge-small {
+  background: var(--gold);
+  color: var(--dark);
+  padding: 8px 18px;
+  border-radius: 40px;
+  font-weight: 800;
+  display: inline-block;
   margin-bottom: 20px;
 }
-.pill {
-  background: rgba(255,255,255,0.1);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 50px;
-  font-size: 12px;
-  font-weight: 600;
-  border: 1px solid rgba(255,255,255,0.15);
+/* Sections */
+section {
+  padding: 80px 5%;
 }
-.pill.gold { background: rgba(232,185,35,0.2); border-color: rgba(232,185,35,0.4); color: var(--gold); }
-.price-badge-hero {
-  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
-  color: var(--dark);
-  padding: 14px 20px;
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
 }
-.price-badge-hero .price-amount { font-size: 24px; font-weight: 900; }
-.price-badge-hero .price-text { font-size: 12px; font-weight: 700; line-height: 1.3; }
-/* ===== SECTIONS ===== */
-section { padding: 80px 5%; }
-.section-header { text-align: center; margin-bottom: 60px; }
 .section-tag {
-  display: inline-block;
   background: var(--purple-soft);
   color: var(--purple);
-  padding: 6px 18px;
-  border-radius: 50px;
-  font-size: 13px;
+  padding: 6px 20px;
+  border-radius: 40px;
   font-weight: 700;
-  margin-bottom: 14px;
+  display: inline-block;
+  margin-bottom: 15px;
 }
 .section-title {
-  font-size: 38px;
+  font-size: 42px;
   font-weight: 900;
   color: var(--dark);
-  line-height: 1.3;
-  margin-bottom: 14px;
 }
-.section-title .gold { color: var(--gold-dark); }
-.section-desc {
-  font-size: 16px;
-  color: var(--gray);
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.8;
-}
-/* ===== WHY ===== */
-.why-section { background: var(--gray-light); }
-.features-grid {
+.section-title span { color: var(--gold); }
+/* Program Cards */
+.program-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 28px;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1300px;
   margin: 0 auto;
 }
-.feature-card {
+.program-card {
   background: white;
-  border-radius: 24px;
-  padding: 32px 28px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: 2px solid transparent;
+  border-radius: 28px;
+  padding: 30px;
+  box-shadow: 0 20px 35px -15px rgba(74,44,138,0.1);
+  transition: 0.3s;
+  border: 1px solid rgba(74,44,138,0.1);
 }
-.feature-card:hover {
+.program-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 50px rgba(74,44,138,0.12);
-  border-color: var(--purple-soft);
+  border-color: var(--gold);
 }
-.feature-icon {
-  width: 64px; height: 64px;
-  background: linear-gradient(135deg, var(--purple), var(--purple-light));
-  border-radius: 18px;
+.program-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--purple-soft), white);
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 28px;
+  font-size: 34px;
   margin-bottom: 20px;
 }
-.feature-icon.gold-bg { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); }
-.feature-title { font-size: 20px; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
-.feature-text { font-size: 14px; color: var(--gray); line-height: 1.7; }
-/* ===== OFFER ===== */
-.offer-section {
-  background: linear-gradient(135deg, var(--purple) 0%, var(--dark) 100%);
-  position: relative;
-}
-.offer-content { position: relative; z-index: 1; text-align: center; color: white; }
-.offer-badge {
-  display: inline-flex;
-  background: rgba(232,185,35,0.2);
-  border: 2px solid var(--gold);
-  color: var(--gold);
-  padding: 10px 24px;
-  border-radius: 50px;
-  font-size: 16px;
+.program-card h3 {
+  font-size: 26px;
   font-weight: 800;
-  margin-bottom: 24px;
+  margin-bottom: 15px;
 }
-.offer-title { font-size: 40px; font-weight: 900; margin-bottom: 16px; }
-.offer-title .gold { color: var(--gold); }
-.offer-desc { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 50px; }
-.offer-cards {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 48px;
-  position: relative;
-}
-.offer-card {
-  background: rgba(255,255,255,0.08);
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255,255,255,0.15);
-  border-radius: 24px;
-  padding: 28px 24px;
-  width: 280px;
-  text-align: center;
-  transition: all 0.3s;
-}
-.offer-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-.offer-card.featured { border-color: var(--gold); background: rgba(232,185,35,0.1); }
-.offer-card-icon { font-size: 44px; margin-bottom: 12px; }
-.offer-card-title { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
-.offer-card-desc { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; }
-.plus-icon {
-  position: absolute;
-  top: 50%; left: -36px;
-  transform: translateY(-50%);
-  width: 48px; height: 48px;
+.program-card .level-badge {
+  display: inline-block;
   background: var(--gold);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: var(--dark);
-  font-size: 24px;
-  font-weight: 900;
-  z-index: 5;
+  padding: 4px 12px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 15px;
 }
-.offer-price-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  background: rgba(255,255,255,0.08);
-  border-radius: 20px;
-  padding: 20px 32px;
-  max-width: 500px;
-  margin: 0 auto 36px;
-  flex-wrap: wrap;
+/* Levels */
+.levels-showcase {
+  background: var(--gray-bg);
+  border-radius: 28px;
+  padding: 30px;
+  margin-top: 60px;
 }
-.price-old { font-size: 20px; color: rgba(255,255,255,0.4); text-decoration: line-through; }
-.price-new { font-size: 44px; font-weight: 900; color: var(--gold); }
-/* ===== COURSES ===== */
-.courses-tabs {
+.level-tabs {
   display: flex;
   gap: 12px;
-  justify-content: center;
-  margin-bottom: 48px;
   flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 .tab-btn {
-  padding: 10px 24px;
-  border-radius: 50px;
+  background: white;
   border: 2px solid var(--purple-soft);
-  background: transparent;
-  color: var(--purple);
+  padding: 10px 24px;
+  border-radius: 40px;
   font-weight: 700;
-  font-size: 14px;
   cursor: pointer;
-  font-family: 'Cairo', sans-serif;
-  transition: all 0.2s;
+  transition: 0.3s;
 }
 .tab-btn.active, .tab-btn:hover {
   background: var(--purple);
   color: white;
   border-color: var(--purple);
 }
-.course-header {
-  background: linear-gradient(135deg, var(--purple), var(--purple-mid));
-  border-radius: 28px 28px 0 0;
-  padding: 32px;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex-wrap: wrap;
+.tab-content {
+  display: none;
+  animation: fade 0.3s ease;
 }
-.course-header-icon {
-  width: 70px; height: 70px;
-  background: rgba(255,255,255,0.15);
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-}
-.course-header-title { font-size: 24px; font-weight: 900; }
-.course-header-desc { font-size: 13px; color: rgba(255,255,255,0.8); }
-.course-header-badge {
-  margin-right: auto;
-  background: var(--gold);
-  color: var(--dark);
-  padding: 8px 20px;
-  border-radius: 50px;
-  font-weight: 800;
-}
-.levels-grid {
-  background: var(--gray-light);
-  border-radius: 0 0 28px 28px;
-  padding: 32px;
+.tab-content.active { display: block; }
+.level-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
-.level-card {
+.level-item {
   background: white;
-  border-radius: 18px;
   padding: 20px;
-  border-right: 4px solid var(--purple-light);
-  transition: all 0.3s;
-}
-.level-card:hover {
-  transform: translateX(-4px);
-  border-right-color: var(--gold);
-}
-.level-number { font-size: 11px; font-weight: 700; color: var(--purple-light); margin-bottom: 6px; }
-.level-name { font-size: 16px; font-weight: 800; margin-bottom: 8px; }
-.level-skills { display: flex; flex-wrap: wrap; gap: 6px; }
-.skill-tag {
-  background: var(--purple-soft);
-  color: var(--purple);
-  padding: 3px 10px;
   border-radius: 20px;
-  font-size: 10px;
-  font-weight: 600;
+  border-right: 5px solid var(--gold);
 }
-/* ===== PRICING ===== */
-.pricing-section { background: var(--gray-light); }
+.level-item h4 { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+/* Pricing Table */
+.pricing-table {
+  background: var(--gray-bg);
+  border-radius: 32px;
+  padding: 30px;
+  overflow-x: auto;
+}
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
 }
 .price-card {
   background: white;
   border-radius: 24px;
   overflow: hidden;
-  transition: transform 0.3s;
-  border: 2px solid transparent;
+  transition: 0.3s;
 }
-.price-card:hover { transform: translateY(-6px); border-color: var(--purple-light); }
-.price-card-header {
-  background: linear-gradient(135deg, var(--purple), var(--purple-mid));
+.price-header {
+  background: linear-gradient(135deg, var(--purple), var(--purple-light));
   padding: 24px;
   color: white;
 }
-.price-card-header.gold-header { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); color: var(--dark); }
-.price-card-type { font-size: 11px; font-weight: 700; opacity: 0.8; }
-.price-card-title { font-size: 18px; font-weight: 900; margin: 4px 0; }
-.price-card-amount { font-size: 34px; font-weight: 900; margin-top: 10px; }
-.price-card-body { padding: 24px; }
-.price-item {
+.price-header.gold {
+  background: linear-gradient(135deg, var(--gold), var(--gold-bright));
+  color: var(--dark);
+}
+.price-amount {
+  font-size: 36px;
+  font-weight: 900;
+}
+.price-features {
+  padding: 24px;
+}
+.price-features li {
+  list-style: none;
+  padding: 8px 0;
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 0;
-  border-bottom: 1px solid #F3F0F9;
-  font-size: 13px;
   font-weight: 500;
 }
-.price-item::before {
-  content: '✓';
-  width: 20px; height: 20px;
-  background: var(--purple-soft);
-  color: var(--purple);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-}
-/* ===== CONTACT ===== */
-.contact-section {
-  background: linear-gradient(135deg, var(--dark), #2D1B5A);
-  color: white;
-}
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.social-buttons { display: flex; flex-direction: column; gap: 14px; }
-.social-btn {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 24px;
-  border-radius: 16px;
-  text-decoration: none;
-  font-weight: 700;
-  transition: transform 0.2s;
-}
-.social-btn:hover { transform: translateX(-6px); }
-.social-btn.whatsapp { background: #25D366; color: white; }
-.social-btn.instagram { background: linear-gradient(135deg, #E1306C, #833AB4, #F77737); color: white; }
-.social-btn.facebook { background: #1877F2; color: white; }
-.social-btn-icon {
-  width: 40px; height: 40px;
-  background: rgba(255,255,255,0.2);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-}
-.contact-visual {
-  background: rgba(255,255,255,0.06);
-  border-radius: 28px;
-  padding: 36px;
-  text-align: center;
-}
-/* ===== IMAGES ===== */
-.images-section { padding: 0; }
-.images-strip { display: flex; flex-wrap: wrap; }
-.img-block {
-  flex: 1;
-  min-height: 260px;
-  position: relative;
-  overflow: hidden;
-}
-.img-block img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-.img-block:hover img { transform: scale(1.05); }
-.img-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(26,15,46,0.7), transparent);
-  display: flex;
-  align-items: flex-end;
-  padding: 20px;
-}
-/* ===== FOOTER ===== */
+/* Footer */
 footer {
   background: var(--dark);
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.7);
   text-align: center;
-  padding: 32px 5%;
-  font-size: 13px;
+  padding: 40px 5%;
 }
-/* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 992px) {
-  .hero-title { font-size: 38px; }
-  .section-title { font-size: 32px; }
-  .hero-grid { gap: 40px; }
-}
-@media (max-width: 768px) {
-  nav { height: 65px; padding: 0 4%; }
+/* Responsive */
+@media (max-width: 900px) {
   .menu-toggle { display: flex; }
   .nav-links {
     position: fixed;
-    top: 65px;
+    top: 80px;
     left: 0;
     right: 0;
-    background: rgba(255,255,255,0.98);
-    backdrop-filter: blur(20px);
+    background: white;
     flex-direction: column;
-    padding: 24px 20px 32px;
-    gap: 18px;
-    border-bottom: 2px solid rgba(74,44,138,0.1);
-    transform: translateY(-120%);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    padding: 30px;
+    gap: 20px;
+    transform: translateY(-150%);
+    transition: 0.4s;
     box-shadow: 0 20px 30px rgba(0,0,0,0.1);
-    z-index: 999;
   }
-  .nav-links.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-  .nav-links a { font-size: 16px; padding: 8px 0; width: 100%; text-align: center; }
-  .nav-cta { width: auto; display: inline-block; margin-top: 8px; }
+  .nav-links.active { transform: translateY(0); }
   .hero-grid { grid-template-columns: 1fr; text-align: center; }
-  .hero-visual { max-width: 450px; margin: 0 auto; width: 100%; }
-  .hero-title { font-size: 32px; }
-  .hero-buttons { justify-content: center; }
-  .hero-stats { justify-content: center; }
-  .features-grid { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-  .social-buttons { align-items: center; }
-  .social-btn { width: 100%; max-width: 320px; justify-content: center; }
-  .course-header { flex-direction: column; text-align: center; }
-  .course-header-badge { margin-right: 0; margin-top: 12px; }
-  .levels-grid { grid-template-columns: 1fr; }
-  .offer-title { font-size: 28px; }
-  .offer-cards { gap: 40px; }
-  .plus-icon { left: 50%; top: -24px; transform: translateX(-50%); }
-  .offer-card { width: 100%; max-width: 280px; }
-  .img-block { min-width: 50%; }
+  .hero-text h1 { font-size: 36px; }
+  .section-title { font-size: 32px; }
+  .program-grid { grid-template-columns: 1fr; }
 }
-@media (max-width: 480px) {
-  .hero-title { font-size: 28px; }
-  .hero-subtitle { font-size: 15px; }
-  .btn-primary, .btn-secondary { padding: 12px 24px; font-size: 14px; width: 100%; justify-content: center; }
-  .section-title { font-size: 26px; }
-  .offer-title { font-size: 24px; }
-  .price-new { font-size: 34px; }
-  .img-block { min-width: 100%; min-height: 200px; }
-  .course-header-icon { width: 55px; height: 55px; font-size: 28px; }
-  .course-header-title { font-size: 20px; }
-  .contact-visual { padding: 24px; }
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-/* Animations */
-.animate-in { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
-.animate-in.visible { opacity: 1; transform: translateY(0); }
-.course-tab-content { display: none; }
-.course-tab-content.active { display: block; }
+.animate-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.7s ease;
+}
+.animate-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 </style>
 </head>
 <body>
-<!-- ===== NAVBAR WITH HAMBURGER MENU ===== -->
 <nav>
-  <a href="#" class="logo-area">
-    <div class="logo-placeholder">
-      <img src="Copy of Edu Rise-logo-02.png" alt="EduRise Logo">
-    </div>
+  <div class="logo">
+    <div class="logo-icon">🎓</div>
     <div class="logo-text">
-      <span><span class="edu">Edu</span><span class="rise">Rise</span></span>
-      <span>Academy</span>
+      <h1><span class="edu">Edu</span><span class="rise">Rise</span></h1>
+      <p>أكاديمية التعليم الرقمي</p>
     </div>
-  </a>
-  <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+  </div>
+  <button class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#why">لماذا EduRise</a></li>
-    <li><a href="#offer">العرض المميز</a></li>
+    <li><a href="#home">الرئيسية</a></li>
+    <li><a href="#programs">البرامج</a></li>
     <li><a href="#courses">الكورسات</a></li>
     <li><a href="#pricing">الأسعار</a></li>
-    <li><a href="#contact" class="nav-cta">تواصل معنا</a></li>
+    <li><a href="#contact" class="nav-cta">📞 تواصل معنا</a></li>
   </ul>
 </nav>
-<!-- ===== HERO SECTION ===== -->
-<section class="hero">
-  <div class="floating-shapes"><div class="shape shape-1"></div><div class="shape shape-2"></div><div class="shape shape-3"></div><div class="shape shape-4"></div></div>
+
+<section class="hero" id="home">
   <div class="hero-grid">
     <div class="hero-text">
-      <div class="hero-badge">الأكاديمية الرقمية #1 للأطفال</div>
-      <h1 class="hero-title">تعلّم <span class="highlight">البرمجة</span> والإنجليزي<br>وارتقِ بمستقبلك 🚀</h1>
-      <p class="hero-subtitle">أكاديمية EduRise — رحلة تعليمية أونلاين استثنائية للأطفال من 7 إلى 14 سنة.<br>كورسات احترافية في البرمجة واللغة الإنجليزية مع مدربين متخصصين.</p>
+      <div class="offer-badge-small">🏆 الأكاديمية الرقمية الأولى للأطفال</div>
+      <h1>تعلّم <span class="gold-text">البرمجة</span> و<br><span class="gold-text">التأسيس الشامل</span> وارتقِ بمستقبلك 🚀</h1>
+      <p>أكاديمية EduRise - رحلة تعليمية متكاملة للأطفال من 3 إلى 14 سنة. برمجة، إنجليزي، تأسيس عربي، قرآن وتجويد، حساب ذهني. كل ذلك في منصة واحدة بأعلى جودة.</p>
       <div class="hero-buttons">
-        <a href="https://api.whatsapp.com/send/?phone=201026128217&text&type=phone_number&app_absent=0" target="_blank" class="btn-primary">📲 سجّل الآن</a>
-        <a href="#courses" class="btn-secondary">🎓 استعرض الكورسات</a>
+        <a href="https://api.whatsapp.com/send/?phone=201026128217" target="_blank" class="btn-primary">📲 ابدأ الآن</a>
+        <a href="#programs" class="btn-secondary">🎓 اكتشف البرامج</a>
       </div>
-      <div class="hero-stats"><div class="stat"><div class="stat-number">16+</div><div class="stat-label">مستوى إنجليزي</div></div><div class="stat"><div class="stat-number">5+</div><div class="stat-label">كورسات برمجة</div></div><div class="stat"><div class="stat-number">100%</div><div class="stat-label">أونلاين</div></div></div>
     </div>
-    <div class="hero-visual"><div class="hero-card"><div class="hero-card-header"><div class="hero-card-icon">🎓</div><div><div class="hero-card-title">ابدأ رحلتك اليوم</div><div class="hero-card-sub">16 ساعة لكل مستوى · جلستين أسبوعياً</div></div></div><div class="course-pills"><div class="pill">🐱 Scratch</div><div class="pill">🐍 Python</div><div class="pill">📱 App Inventor</div><div class="pill">🌐 Web Design</div><div class="pill gold">🇬🇧 English 16 Levels</div></div><div class="price-badge-hero"><div><div class="price-amount">2,500 ج</div><div style="font-size:11px;font-weight:700;">/ مستوى</div></div><div class="price-text">كورس إنجليزي + برمجة<br>معاً بسعر واحد فقط! ⭐</div></div></div></div>
+    <div class="hero-card">
+      <div class="offer-badge-small" style="background:rgba(232,185,35,0.2); color:var(--gold);">عرض خاص</div>
+      <h3 style="color:white; font-size:24px;">إنجليزي + برمجة</h3>
+      <p style="color:rgba(255,255,255,0.8); margin:15px 0;">اشترك في كورس الإنجليزي واحصل على مستوى برمجة مجاناً - بسعر واحد فقط</p>
+      <div style="background: var(--gold); border-radius: 20px; padding: 15px; text-align:center; color:var(--dark);">
+        <span style="font-size:28px; font-weight:900;">2,500 ج</span>
+        <span style="text-decoration:line-through; margin-right:10px;">5,000 ج</span>
+        <p style="font-weight:800;">/ مستوى شامل</p>
+      </div>
+    </div>
   </div>
 </section>
-<!-- IMAGES STRIP -->
-<div class="images-section"><div class="images-strip"><div class="img-block"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop&q=90" alt="أطفال يتعلمون"><div class="img-overlay"><div class="img-label">🎓 تعلّم ممتع</div></div></div><div class="img-block"><img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&h=400&fit=crop&q=90" alt="طفل يبرمج"><div class="img-overlay"><div class="img-label">💻 برمجة للأطفال</div></div></div><div class="img-block"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&h=400&fit=crop&q=90" alt="أطفال في الأكاديمية"><div class="img-overlay"><div class="img-label">🌟 إنجليزي مبدع</div></div></div><div class="img-block"><img src="https://images.unsplash.com/photo-1491308056676-205b7c9a7dc1?w=600&h=400&fit=crop&q=90" alt="تعليم أونلاين"><div class="img-overlay"><div class="img-label">🚀 مستقبل رقمي</div></div></div></div></div>
-<!-- WHY SECTION -->
-<section class="why-section" id="why"><div class="section-header animate-in"><div class="section-tag">لماذا EduRise؟</div><h2 class="section-title">الأكاديمية التي <span class="gold">يحبها</span> أطفالك</h2><p class="section-desc">نجمع بين التعليم الاحترافي والمتعة الحقيقية في بيئة أونلاين آمنة</p></div><div class="features-grid"><div class="feature-card animate-in"><div class="feature-icon">🌐</div><div class="feature-title">أونلاين 100%</div><div class="feature-text">تعلّم من راحة بيتك بدون تنقل. جلسات مباشرة مع مدربين متخصصين</div></div><div class="feature-card animate-in"><div class="feature-icon gold-bg">⭐</div><div class="feature-title">مدربون محترفون</div><div class="feature-text">فريق متخصص في تعليم الأطفال بأحدث الأساليب التفاعلية</div></div><div class="feature-card animate-in"><div class="feature-icon">🎯</div><div class="feature-title">منهج تدريجي</div><div class="feature-text">مستويات مصممة بعناية حتى الاحتراف الكامل</div></div><div class="feature-card animate-in"><div class="feature-icon gold-bg">🏆</div><div class="feature-title">شهادات معتمدة</div><div class="feature-text">يحصل كل طفل على شهادة إتمام عند إكمال كل مستوى</div></div><div class="feature-card animate-in"><div class="feature-icon">👨‍👩‍👧</div><div class="feature-title">تقارير للأهل</div><div class="feature-text">تقارير أسبوعية دورية للوالدين لمتابعة التقدم</div></div><div class="feature-card animate-in"><div class="feature-icon gold-bg">🎮</div><div class="feature-title">تعليم تفاعلي ممتع</div><div class="feature-text">ألعاب تعليمية ومشاريع حقيقية تجعل الطفل يحب التعلم</div></div></div></section>
-<!-- OFFER SECTION -->
-<section class="offer-section" id="offer"><div class="offer-content animate-in"><div class="offer-badge">🎁 عرض EduRise الحصري</div><h2 class="offer-title">إنجليزي + برمجة<br><span class="gold">بسعر واحد فقط!</span></h2><p class="offer-desc">اشترك في كورس الإنجليزي واحصل على مستوى برمجة مجاناً<br>والعكس صحيح! الفرصة محدودة 🔥</p><div class="offer-cards"><div class="offer-card"><div class="offer-card-icon">🇬🇧</div><div class="offer-card-title">كورس الإنجليزي</div><div class="offer-card-desc">16 مستوى · 16 ساعة/مستوى · جلستين أسبوعياً</div></div><div style="position:relative;"><div class="plus-icon">+</div></div><div class="offer-card featured"><div class="offer-card-icon">💻</div><div class="offer-card-title">كورس البرمجة</div><div class="offer-card-desc">Scratch · Python · App Inventor · Web Design</div></div></div><div class="offer-price-box"><div><div class="price-old">5,000 ج</div><div class="price-new">2,500 ج</div></div><div class="price-note" style="color:white;font-size:13px;">فقط 2,500 جنيه للمستوى الواحد<br>يشمل كورس إنجليزي + مستوى برمجة<br><strong style="color:var(--gold);">وفّر 50% 🎉</strong></div></div><a href="https://api.whatsapp.com/send/?phone=201026128217&text&type=phone_number&app_absent=0" target="_blank" class="btn-primary" style="font-size:18px; padding:16px 42px;">📲 احجز مقعدك الآن</a></div></section>
-<!-- COURSES SECTION (abbreviated for length but complete structure) -->
-<section id="courses"><div class="section-header animate-in"><div class="section-tag">كورساتنا</div><h2 class="section-title">كل ما تحتاجه في <span class="gold">مكان واحد</span></h2><p class="section-desc">كورسات متكاملة مصممة للأطفال بمناهج عالمية</p></div><div class="courses-tabs"><button class="tab-btn active" onclick="showTab('english')">🇬🇧 الإنجليزي</button><button class="tab-btn" onclick="showTab('scratch')">🐱 Scratch</button><button class="tab-btn" onclick="showTab('python')">🐍 Python</button><button class="tab-btn" onclick="showTab('appinventor')">📱 App Inventor</button><button class="tab-btn" onclick="showTab('webdesign')">🌐 Web Design</button></div><div class="courses-container"><div id="tab-english" class="course-tab-content active"><div class="course-header"><div class="course-header-icon">🇬🇧</div><div><div class="course-header-title">English Course — 16 مستوى</div><div class="course-header-desc">رحلة شاملة من الصفر للاحتراف · معتمد CEFR</div></div><div class="course-header-badge">16 ساعة / مستوى</div></div><div class="levels-grid"><div class="level-card"><div class="level-number">Foundation 1</div><div class="level-name">Introduction to Basics</div><div class="level-skills"><span class="skill-tag">الأبجدية</span><span class="skill-tag">الألوان</span></div></div><div class="level-card"><div class="level-number">Foundation 2</div><div class="level-name">Building Confidence</div><div class="level-skills"><span class="skill-tag">Body Parts</span><span class="skill-tag">Pets</span></div></div><div class="level-card"><div class="level-number">Beginner 1-4</div><div class="level-name">Everyday Vocabulary</div><div class="level-skills"><span class="skill-tag">Family</span><span class="skill-tag">Food</span><span class="skill-tag">Hobbies</span></div></div><div class="level-card"><div class="level-number">Intermediate 1-4</div><div class="level-name">Communication Skills</div><div class="level-skills"><span class="skill-tag">Travel</span><span class="skill-tag">Technology</span></div></div><div class="level-card"><div class="level-number">Advanced 1-4</div><div class="level-name">Analytical Reading</div><div class="level-skills"><span class="skill-tag">Science</span><span class="skill-tag">Literature</span></div></div><div class="level-card"><div class="level-number">Expert 1-2</div><div class="level-name">Mastery</div><div class="level-skills"><span class="skill-tag">Leadership</span><span class="skill-tag">Innovation</span></div></div></div></div><div id="tab-scratch" class="course-tab-content"><div class="course-header"><div class="course-header-icon">🐱</div><div><div class="course-header-title">Scratch — البرمجة المرئية</div><div class="course-header-desc">منصة MIT · ألعاب وقصص متحركة</div></div><div class="course-header-badge">3 مستويات</div></div><div class="levels-grid"><div class="level-card"><div class="level-number">Beginner</div><div class="level-name">Foundation</div><div class="level-skills"><span class="skill-tag">Animations</span><span class="skill-tag">Block Coding</span></div></div><div class="level-card"><div class="level-number">Intermediate</div><div class="level-name">Games</div><div class="level-skills"><span class="skill-tag">Interactive</span><span class="skill-tag">Multi-Stage</span></div></div><div class="level-card"><div class="level-number">Advanced</div><div class="level-name">Pro Coder</div><div class="level-skills"><span class="skill-tag">Advanced Games</span><span class="skill-tag">Competitions</span></div></div></div></div><div id="tab-python" class="course-tab-content"><div class="course-header"><div class="course-header-icon">🐍</div><div><div class="course-header-title">Python — لغة المستقبل</div><div class="course-header-desc">من الصفر للاحتراف · مشاريع حقيقية</div></div><div class="course-header-badge">5 مستويات</div></div><div class="levels-grid"><div class="level-card"><div class="level-number">Beginner</div><div class="level-name">Start Coding</div><div class="level-skills"><span class="skill-tag">أساسيات</span><span class="skill-tag">برامج بسيطة</span></div></div><div class="level-card"><div class="level-number">Intermediate</div><div class="level-name">Play & Create</div><div class="level-skills"><span class="skill-tag">ألعاب</span><span class="skill-tag">مشاريع</span></div></div><div class="level-card"><div class="level-number">Advanced</div><div class="level-name">Build More</div><div class="level-skills"><span class="skill-tag">مشاريع ضخمة</span></div></div><div class="level-card"><div class="level-number">Expert</div><div class="level-name">Innovate</div><div class="level-skills"><span class="skill-tag">لعبة كاملة</span></div></div><div class="level-card"><div class="level-number">Master</div><div class="level-name">مبرمج محترف</div><div class="level-skills"><span class="skill-tag">تخرج</span><span class="skill-tag">شهادة</span></div></div></div></div><div id="tab-appinventor" class="course-tab-content"><div class="course-header"><div class="course-header-icon">📱</div><div><div class="course-header-title">MIT App Inventor</div><div class="course-header-desc">تطبيقات موبايل حقيقية</div></div><div class="course-header-badge">3 مستويات</div></div><div class="levels-grid"><div class="level-card"><div class="level-number">Beginner</div><div class="level-name">First App</div><div class="level-skills"><span class="skill-tag">واجهات</span><span class="skill-tag">تطبيقات بسيطة</span></div></div><div class="level-card"><div class="level-number">Intermediate</div><div class="level-name">Interactive</div><div class="level-skills"><span class="skill-tag">Sensors</span><span class="skill-tag">Data</span></div></div><div class="level-card"><div class="level-number">Advanced</div><div class="level-name">App Pro</div><div class="level-skills"><span class="skill-tag">Multi-Screen</span><span class="skill-tag">API</span></div></div></div></div><div id="tab-webdesign" class="course-tab-content"><div class="course-header"><div class="course-header-icon">🌐</div><div><div class="course-header-title">Web Design</div><div class="course-header-desc">HTML, CSS, JavaScript</div></div><div class="course-header-badge">4 مستويات</div></div><div class="levels-grid"><div class="level-card"><div class="level-number">Beginner</div><div class="level-name">HTML Basics</div><div class="level-skills"><span class="skill-tag">نصوص</span><span class="skill-tag">صور</span></div></div><div class="level-card"><div class="level-number">Intermediate</div><div class="level-name">CSS Styling</div><div class="level-skills"><span class="skill-tag">تصميم</span><span class="skill-tag">جداول</span></div></div><div class="level-card"><div class="level-number">Advanced</div><div class="level-name">JavaScript</div><div class="level-skills"><span class="skill-tag">تفاعلات</span><span class="skill-tag">ألعاب</span></div></div><div class="level-card"><div class="level-number">Expert</div><div class="level-name">Live Website</div><div class="level-skills"><span class="skill-tag">GitHub</span><span class="skill-tag">مشروع متكامل</span></div></div></div></div></div></section>
-<!-- PRICING SECTION -->
-<section class="pricing-section" id="pricing"><div class="section-header animate-in"><div class="section-tag">الأسعار</div><h2 class="section-title">باقات لكل <span class="gold">احتياج</span></h2><p class="section-desc">أسعار شفافة ومرنة تناسب جميع الأسر</p></div><div class="pricing-grid"><div class="price-card animate-in" style="border-color:var(--gold);"><div class="price-card-header gold-header"><div class="price-card-type">⭐ العرض الأميز</div><div class="price-card-title">إنجليزي + برمجة</div><div class="price-card-amount">2,500 <span>ج / مستوى</span></div></div><div class="price-card-body"><div class="price-item">مستوى إنجليزي كامل</div><div class="price-item">مستوى برمجة مجاناً</div><div class="price-item">16 ساعة تدريبية</div><div class="price-item">شهادة إكمال</div></div></div><div class="price-card animate-in"><div class="price-card-header"><div class="price-card-type">خاص فردي</div><div class="price-card-title">ابتدائي — خاص</div><div class="price-card-amount">600 <span>ج / شهر</span></div></div><div class="price-card-body"><div class="price-item">عربي · دراسات · علوم</div><div class="price-item">إنجليزي OL و AL</div><div class="price-item">حصتين أسبوعياً</div></div></div><div class="price-card animate-in"><div class="price-card-header"><div class="price-card-type">مجموعات</div><div class="price-card-title">ابتدائي — مجموعات</div><div class="price-card-amount">250 <span>ج / شهر</span></div></div><div class="price-card-body"><div class="price-item">عربي · دراسات · علوم</div><div class="price-item">إنجليزي OL و AL</div><div class="price-item">تعلم جماعي ممتع</div></div></div><div class="price-card animate-in"><div class="price-card-header"><div class="price-card-type">خاص فردي</div><div class="price-card-title">إعدادي — خاص</div><div class="price-card-amount">600 <span>ج / شهر</span></div></div><div class="price-card-body"><div class="price-item">عربي · علوم · ساينس</div><div class="price-item">إنجليزي OL و AL</div><div class="price-item">تحضير امتحانات</div></div></div><div class="price-card animate-in"><div class="price-card-header"><div class="price-card-type">مجموعات</div><div class="price-card-title">إعدادي — مجموعات</div><div class="price-card-amount">300 <span>ج / شهر</span></div></div><div class="price-card-body"><div class="price-item">جميع المواد الأساسية</div><div class="price-item">إنجليزي متقدم</div><div class="price-item">حصتين أسبوعياً</div></div></div><div class="price-card animate-in"><div class="price-card-header gold-header"><div class="price-card-type">🏫 المدرسة اليومية</div><div class="price-card-title">كل المواد يومياً</div><div class="price-card-amount">من 1,700 <span>ج / شهر</span></div></div><div class="price-card-body"><div class="price-item">ابتدائي عربي — 1,700 ج</div><div class="price-item">ابتدائي لغات — 1,900 ج</div><div class="price-item">إعدادي عربي — 2,200 ج</div><div class="price-item">إعدادي لغات — 2,400 ج</div></div></div></div></section>
-<!-- CONTACT SECTION -->
-<section class="contact-section" id="contact"><div class="contact-grid"><div class="contact-text animate-in"><h2>جاهز تبدأ؟<br><span style="color:var(--gold)">تواصل معنا الآن! 🚀</span></h2><p>سجّل طفلك اليوم وابدأ رحلة التعلم المميزة. فريقنا جاهز للرد على كل أسئلتك.</p><div class="social-buttons"><a href="https://api.whatsapp.com/send/?phone=201026128217&text&type=phone_number&app_absent=0" target="_blank" class="social-btn whatsapp"><div class="social-btn-icon">📲</div><div class="social-btn-text"><div class="label">تواصل معنا عبر</div><div class="name">WhatsApp</div></div></a><a href="https://www.instagram.com/edu_rise0/" target="_blank" class="social-btn instagram"><div class="social-btn-icon">📸</div><div class="social-btn-text"><div class="label">تابعنا على</div><div class="name">Instagram</div></div></a><a href="https://www.facebook.com/edurise2" target="_blank" class="social-btn facebook"><div class="social-btn-icon">👍</div><div class="social-btn-text"><div class="label">لايك صفحتنا على</div><div class="name">Facebook</div></div></a></div></div><div class="contact-visual animate-in"><div class="big-icon" style="font-size:64px;">🎓</div><h3>ابدأ اليوم!</h3><p>انضم لأكاديمية EduRise وامنح طفلك مهارات المستقبل</p><a href="https://api.whatsapp.com/send/?phone=201026128217&text&type=phone_number&app_absent=0" target="_blank" class="btn-primary" style="justify-content:center; width:100%;">📲 سجّل الآن مجاناً</a></div></div></section>
-<footer><div class="footer-logo"><span class="edu">Edu</span><span class="rise">Rise</span> Academy</div><p>© 2025 EduRise Academy — جميع الحقوق محفوظة</p><p>أكاديمية التعليم الرقمي للأطفال · برمجة · إنجليزي · أونلاين 100%</p></footer>
+
+<!-- برنامج التأسيس الشامل -->
+<section id="programs" style="background: linear-gradient(135deg, #F9F7FE 0%, white 100%);">
+  <div class="section-header animate-in">
+    <div class="section-tag">🌟 برنامجنا المميز</div>
+    <h2 class="section-title">برنامج <span>تأسيس الطفل</span> الشامل</h2>
+    <p style="max-width:800px; margin:15px auto; color:var(--gray-text);">من عمر 3 إلى 10 سنوات - بناء قاعدة معرفية قوية في اللغة العربية، الإنجليزية، الحساب الذهني، والقرآن الكريم بالتجويد.</p>
+  </div>
+  <div class="program-grid animate-in">
+    <div class="program-card"><div class="program-icon">📖</div><h3>تأسيس اللغة العربية</h3><div class="level-badge">نور البيان</div><p>الوعي الصوتي، مخارج الحروف، القراءة المبكرة، الكتابة من الحروف إلى الجمل، التأسيس الإملائي وفق منهج نور البيان بالطريقة النورانية.</p></div>
+    <div class="program-card"><div class="program-icon">🇬🇧</div><h3>تأسيس اللغة الإنجليزية</h3><div class="level-badge">Phonics</div><p>الحروف الإنجليزية ونطقها الصحيح، القراءة المبكرة، تكوين مفردات أساسية، بناء جمل وتراكيب بسيطة بأسلوب تفاعلي.</p></div>
+    <div class="program-card"><div class="program-icon">🧠</div><h3>الحساب الذهني</h3><div class="level-badge">Mental Math</div><p>فهم الأعداد وخصائصها، العمليات الأساسية (جمع - طرح)، استراتيجيات ذهنية لتنمية سرعة التفكير وحل المشكلات.</p></div>
+    <div class="program-card"><div class="program-icon">🕋</div><h3>القرآن الكريم والتجويد</h3><div class="level-badge">تلاوة صحيحة</div><p>تحسين مخارج الحروف، أحكام التجويد الأساسية، حفظ سور قصيرة، قراءة قرآنية صحيحة مبسطة مع متابعة فردية.</p></div>
+  </div>
+  <div class="levels-showcase animate-in">
+    <h3 style="font-size:28px; margin-bottom:15px;">📚 هيكل البرنامج المتكامل</h3>
+    <p>4 مسارات تعليمية أساسية تُقدّم خلال 3 سنوات (مجموعات صغيرة أو جلسات خاصة 1:1). جميع المسارات عبر حصص مباشرة مع معلمات مصريات متخصصات في تعليم الأطفال المبكر.</p>
+    <div style="display:flex; flex-wrap:wrap; gap:15px; margin-top:30px;">
+      <div style="flex:1; min-width:200px; background:white; border-radius:20px; padding:20px; text-align:center;"><span style="font-size:32px;">👩‍🏫</span><br><strong>معلمات مصريات</strong><br>متخصصات في نور البيان</div>
+      <div style="flex:1; min-width:200px; background:white; border-radius:20px; padding:20px; text-align:center;"><span style="font-size:32px;">🎯</span><br><strong>تقييم مستمر</strong><br>تقارير شهرية + متابعة فردية</div>
+      <div style="flex:1; min-width:200px; background:white; border-radius:20px; padding:20px; text-align:center;"><span style="font-size:32px;">💻</span><br><strong>Online Live</strong><br>منصة تفاعلية مخصصة للأطفال</div>
+    </div>
+  </div>
+</section>
+
+<!-- كورسات البرمجة والإنجليزي -->
+<section id="courses">
+  <div class="section-header animate-in">
+    <div class="section-tag">🎯 أكاديمية الاحتراف</div>
+    <h2 class="section-title">أفضل <span>كورسات البرمجة</span> و <span>اللغة الإنجليزية</span> في العالم</h2>
+    <p>مناهج معتمدة من MIT - CEFR - نور البيان - تعلم حقيقي بمشاريع عملية</p>
+  </div>
+  <div class="program-grid animate-in">
+    <div class="program-card"><div class="program-icon">🇬🇧</div><h3>English Course</h3><div class="level-badge">16 مستوى CEFR</div><p>من Foundation إلى Expert - 16 مستوى متكامل: Listening, Speaking, Reading, Writing. كل مستوى 16 ساعة تدريبية، جلستان أسبوعياً. معتمد على المعايير الدولية للأطفال.</p><a href="#english-details" style="color:var(--gold); font-weight:700;">تفاصيل المستويات ↓</a></div>
+    <div class="program-card"><div class="program-icon">🐱</div><h3>Scratch</h3><div class="level-badge">3 مستويات - MIT</div><p>البرمجة المرئية من MIT: Beginner (أساسيات)، Intermediate (ألعاب تفاعلية)، Advanced (إبداع احترافي). مشاريع حقيقية وقصص متحركة.</p></div>
+    <div class="program-card"><div class="program-icon">🐍</div><h3>Python</h3><div class="level-badge">5 مستويات</div><p>من الصفر للاحتراف: Beginner، Intermediate، Advanced، Expert، Master. مشاريع ألعاب، تطبيقات، تحليل بيانات، وشهادة مبرمج صغير محترف.</p></div>
+    <div class="program-card"><div class="program-icon">📱</div><h3>MIT App Inventor</h3><div class="level-badge">3 مستويات</div><p>تطبيقات Android حقيقية باستخدام البلوك كودينج. Beginner (أول تطبيق)، Intermediate (Sensors و Data)، Advanced (Multi-Screen و API).</p></div>
+    <div class="program-card"><div class="program-icon">🌐</div><h3>Web Design</h3><div class="level-badge">4 مستويات</div><p>HTML, CSS, JavaScript. Beginner (أساسيات)، Intermediate (CSS متقدم)، Advanced (تفاعلات JS)، Expert (موقع متكامل على GitHub Pages).</p></div>
+  </div>
+
+  <!-- English Levels Details -->
+  <div id="english-details" class="levels-showcase animate-in" style="margin-top:30px;">
+    <h3 style="font-size:28px;">📖 تفاصيل مستويات اللغة الإنجليزية (16 مستوى)</h3>
+    <div class="level-tabs" id="engTabs">
+      <button class="tab-btn active" data-tab="foundation">Foundation (1-2)</button>
+      <button class="tab-btn" data-tab="beginner">Beginner (1-4)</button>
+      <button class="tab-btn" data-tab="intermediate">Intermediate (1-4)</button>
+      <button class="tab-btn" data-tab="advanced">Advanced (1-4)</button>
+      <button class="tab-btn" data-tab="expert">Expert (1-2)</button>
+    </div>
+    <div id="foundation" class="tab-content active"><div class="level-list"><div class="level-item"><h4>Foundation 1</h4><p>الأبجدية، الأرقام 1-10، الألوان، الأشكال، عبارات تحية بسيطة. أغاني تفاعلية وألعاب.</p></div><div class="level-item"><h4>Foundation 2</h4><p>Body Parts, Pets, عبارات "This is...", تمييز الأصوات، Role-playing.</p></div></div></div>
+    <div id="beginner" class="tab-content"><div class="level-list"><div class="level-item"><h4>Beginner 1-2</h4><p>Family, Food, Daily Routines, Toys, Subject-Verb sentences, أسئلة بسيطة.</p></div><div class="level-item"><h4>Beginner 3-4</h4><p>School, Places, Hobbies, Weather, Present Simple, كتابة كلمات وجمل قصيرة، محادثات يومية.</p></div></div></div>
+    <div id="intermediate" class="tab-content"><div class="level-list"><div class="level-item"><h4>Intermediate 1-2</h4><p>Sports, Travel, Environment, Technology, Past Simple, Comparatives, قراءة نصوص.</p></div><div class="level-item"><h4>Intermediate 3-4</h4><p>Stories, Emotions, Culture, Health, Future Simple, Conditionals, مناقشات جماعية.</p></div></div></div>
+    <div id="advanced" class="tab-content"><div class="level-list"><div class="level-item"><h4>Advanced 1-2</h4><p>Science, History, Economy, Arts, Passives, Relatives, تحليل نصوص، كتابة إقناعية.</p></div><div class="level-item"><h4>Advanced 3-4</h4><p>Politics, Literature, Business, Media, Modals, Complex Sentences, مناظرات رسمية.</p></div></div></div>
+    <div id="expert" class="tab-content"><div class="level-list"><div class="level-item"><h4>Expert 1-2</h4><p>Law, Philosophy, Innovation, Leadership, Advanced Structures, مشاريع بحثية، شهادة إتقان.</p></div></div></div>
+  </div>
+</section>
+
+<!-- الأسعار -->
+<section id="pricing" style="background:var(--gray-bg);">
+  <div class="section-header animate-in">
+    <div class="section-tag">💰 باقات مرنة</div>
+    <h2 class="section-title">اختر <span>الباقة المناسبة</span> لعائلتك</h2>
+    <p>أسعار شفافة - خصومات للمجموعات - جودة عالية بلا منافس</p>
+  </div>
+  <div class="pricing-table animate-in">
+    <div class="pricing-grid">
+      <div class="price-card"><div class="price-header gold"><div class="price-amount">2,500 ج</div><p>/ مستوى (إنجليزي + برمجة)</p></div><div class="price-features"><ul><li>✅ مستوى إنجليزي كامل (16 ساعة)</li><li>✅ مستوى برمجة مجاناً (Scratch/Python/App/Web)</li><li>✅ شهادة معتمدة</li><li>✅ تقارير أسبوعية</li></ul></div></div>
+      <div class="price-card"><div class="price-header"><div class="price-amount">600 ج</div><p>/ شهر - خاص فردي (ابتدائي/إعدادي)</p></div><div class="price-features"><ul><li>✅ مادة واحدة: عربي / دراسات / علوم / إنجليزي OL/AL / ساينس</li><li>✅ من 1 إلى 2 طالب</li><li>✅ حصتين أسبوعياً</li><li>✅ متابعة شخصية كاملة</li></ul></div></div>
+      <div class="price-card"><div class="price-header"><div class="price-amount">250 ج</div><p>/ شهر - مجموعات ابتدائي</p></div><div class="price-features"><ul><li>✅ عربي / دراسات / علوم / إنجليزي OL/AL</li><li>✅ من 5 أطفال فأكثر</li><li>✅ حصتين أسبوعياً</li><li>✅ تعلم جماعي ممتع</li></ul></div></div>
+      <div class="price-card"><div class="price-header"><div class="price-amount">300 ج</div><p>/ شهر - مجموعات إعدادي</p></div><div class="price-features"><ul><li>✅ عربي / دراسات / علوم / إنجليزي OL/AL / ساينس</li><li>✅ من 7 أطفال فأكثر</li><li>✅ حصتين أسبوعياً</li><li>✅ تحضير امتحانات</li></ul></div></div>
+      <div class="price-card"><div class="price-header gold"><div class="price-amount">1,700 - 2,400 ج</div><p>/ شهر - المدرسة اليومية</p></div><div class="price-features"><ul><li>✅ ابتدائي عربي 1,700 ج / ابتدائي لغات 1,900 ج</li><li>✅ إعدادي عربي 2,200 ج / إعدادي لغات 2,400 ج</li><li>✅ جميع المواد يومياً (صباحاً أو مساءً)</li><li>✅ من 7 أطفال فأكثر</li></ul></div></div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:40px;">
+    <a href="https://api.whatsapp.com/send/?phone=201026128217" target="_blank" class="btn-primary" style="background:var(--gold); font-size:18px; padding:16px 48px;">📞 احجز مقعدك الآن - العرض محدود</a>
+  </div>
+</section>
+
+<!-- تواصل -->
+<section id="contact" style="background: linear-gradient(135deg, var(--purple-dark), var(--purple));">
+  <div class="contact-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:50px; max-width:1100px; margin:0 auto; align-items:center;">
+    <div><h2 style="color:white; font-size:38px;">جاهز تبدأ الرحلة؟</h2><p style="color:rgba(255,255,255,0.8); margin:20px 0;">سجل طفلك اليوم في أفضل أكاديمية تعليم رقمي واستقبل مستقبله.</p>
+    <div style="display:flex; gap:15px; flex-wrap:wrap;"><a href="https://api.whatsapp.com/send/?phone=201026128217" class="btn-primary" style="background:#25D366;">📲 WhatsApp</a><a href="https://www.instagram.com/edu_rise0/" class="btn-primary" style="background:linear-gradient(135deg,#E1306C,#833AB4);">📸 Instagram</a><a href="https://www.facebook.com/edurise2" class="btn-primary" style="background:#1877F2;">👍 Facebook</a></div></div>
+    <div style="background:rgba(255,255,255,0.1); border-radius:32px; padding:30px; text-align:center;"><div style="font-size:64px;">🎓</div><h3 style="color:var(--gold);">احصل على استشارة مجانية</h3><p style="color:white;">فريقنا التعليمي ينتظرك للإجابة على كل أسئلتك</p><a href="https://api.whatsapp.com/send/?phone=201026128217" class="btn-primary" style="margin-top:20px; display:inline-block;">📲 تواصل الآن</a></div>
+  </div>
+</section>
+
+<footer>
+  <div style="font-size:28px; font-weight:900;"><span style="color:var(--purple-light);">Edu</span><span style="color:var(--gold);">Rise</span> Academy</div>
+  <p>© 2025 EduRise Academy - أكاديمية التعليم الرقمي المتكامل - برمجة، إنجليزي، تأسيس شامل، قرآن وتجويد، حساب ذهني - أونلاين 100%</p>
+</footer>
+
 <script>
-// Mobile Menu Toggle
-const menuToggle = document.getElementById('menuToggle');
-const navLinks = document.getElementById('navLinks');
-if(menuToggle) {
-  menuToggle.addEventListener('click', (e) => {
-    e.stopPropagation();
-    menuToggle.classList.toggle('active');
-    navLinks.classList.toggle('active');
-    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+// Mobile menu
+const toggle = document.getElementById('menuToggle');
+const nav = document.getElementById('navLinks');
+toggle?.addEventListener('click', () => nav.classList.toggle('active'));
+document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => nav.classList.remove('active')));
+
+// Tabs for English levels
+const tabs = document.querySelectorAll('#engTabs .tab-btn');
+const contents = document.querySelectorAll('.tab-content');
+tabs.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const tabId = btn.getAttribute('data-tab');
+    tabs.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    contents.forEach(c => c.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
   });
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      menuToggle.classList.remove('active');
-      navLinks.classList.remove('active');
-      document.body.style.overflow = '';
-    });
-  });
-}
-// Tab switching function
-function showTab(tab) {
-  document.querySelectorAll('.course-tab-content').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  const activeTab = document.getElementById('tab-' + tab);
-  if(activeTab) activeTab.classList.add('active');
-  const clickedBtn = event && event.target ? event.target : null;
-  if(clickedBtn && clickedBtn.classList) clickedBtn.classList.add('active');
-  else {
-    const btns = document.querySelectorAll('.tab-btn');
-    btns.forEach(btn => { if(btn.innerText.includes(tab === 'english' ? 'الإنجليزي' : tab === 'scratch' ? 'Scratch' : tab === 'python' ? 'Python' : tab === 'appinventor' ? 'App' : 'Web')) btn.classList.add('active'); });
-  }
-}
+});
+
 // Scroll animations
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => { if(entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 80); });
+  entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+
 // Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const targetId = a.getAttribute('href');
-    if(targetId && targetId !== '#') {
-      const target = document.querySelector(targetId);
-      if(target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        if(navLinks.classList.contains('active')) {
-          menuToggle.classList.remove('active');
-          navLinks.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-      }
-    }
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if(target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
   });
 });
 </script>
