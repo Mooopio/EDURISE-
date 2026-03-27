@@ -64,17 +64,18 @@ nav {
 .logo-placeholder {
   width: 55px;
   height: 55px;
-  background: linear-gradient(135deg, var(--purple), var(--purple-light));
   border-radius: 14px;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
-  color: white;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  border: 2px dashed var(--gold);
   flex-shrink: 0;
+}
+
+.logo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .logo-text {
@@ -296,9 +297,7 @@ nav {
   margin-top: 36px;
 }
 
-.stat {
-  text-align: center;
-}
+.stat { text-align: center; }
 
 .stat-number {
   font-size: 28px;
@@ -312,9 +311,7 @@ nav {
   font-weight: 400;
 }
 
-.hero-visual {
-  position: relative;
-}
+.hero-visual { position: relative; }
 
 .hero-card {
   background: rgba(255,255,255,0.1);
@@ -343,16 +340,8 @@ nav {
   font-size: 26px;
 }
 
-.hero-card-title {
-  color: white;
-  font-size: 20px;
-  font-weight: 800;
-}
-
-.hero-card-sub {
-  color: rgba(255,255,255,0.6);
-  font-size: 13px;
-}
+.hero-card-title { color: white; font-size: 20px; font-weight: 800; }
+.hero-card-sub { color: rgba(255,255,255,0.6); font-size: 13px; }
 
 .course-pills {
   display: flex;
@@ -383,25 +372,13 @@ nav {
   justify-content: space-between;
 }
 
-.price-badge-hero .price-amount {
-  font-size: 26px;
-  font-weight: 900;
-}
-
-.price-badge-hero .price-text {
-  font-size: 13px;
-  font-weight: 700;
-  text-align: left;
-  line-height: 1.3;
-}
+.price-badge-hero .price-amount { font-size: 26px; font-weight: 900; }
+.price-badge-hero .price-text { font-size: 13px; font-weight: 700; text-align: left; line-height: 1.3; }
 
 /* ===== SECTIONS GENERAL ===== */
 section { padding: 90px 5%; }
 
-.section-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
+.section-header { text-align: center; margin-bottom: 60px; }
 
 .section-tag {
   display: inline-block;
@@ -433,9 +410,7 @@ section { padding: 90px 5%; }
 }
 
 /* ===== WHY EDURISE ===== */
-.why-section {
-  background: var(--gray-light);
-}
+.why-section { background: var(--gray-light); }
 
 .features-grid {
   display: grid;
@@ -464,18 +439,15 @@ section { padding: 90px 5%; }
 .feature-card::before {
   content: '';
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 100px;
-  height: 100px;
+  top: 0; right: 0;
+  width: 100px; height: 100px;
   background: radial-gradient(circle, var(--purple-soft), transparent);
   border-radius: 50%;
   transform: translate(30%, -30%);
 }
 
 .feature-icon {
-  width: 64px;
-  height: 64px;
+  width: 64px; height: 64px;
   background: linear-gradient(135deg, var(--purple), var(--purple-light));
   border-radius: 18px;
   display: flex;
@@ -485,22 +457,9 @@ section { padding: 90px 5%; }
   margin-bottom: 20px;
 }
 
-.feature-icon.gold-bg {
-  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-}
-
-.feature-title {
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--dark);
-  margin-bottom: 10px;
-}
-
-.feature-text {
-  font-size: 14px;
-  color: var(--gray);
-  line-height: 1.8;
-}
+.feature-icon.gold-bg { background: linear-gradient(135deg, var(--gold-dark), var(--gold)); }
+.feature-title { font-size: 18px; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
+.feature-text { font-size: 14px; color: var(--gray); line-height: 1.8; }
 
 /* ===== SPECIAL OFFER ===== */
 .offer-section {
@@ -516,12 +475,7 @@ section { padding: 90px 5%; }
   background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-.offer-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  color: white;
-}
+.offer-content { position: relative; z-index: 1; text-align: center; color: white; }
 
 .offer-badge {
   display: inline-flex;
@@ -543,21 +497,9 @@ section { padding: 90px 5%; }
   50% { box-shadow: 0 0 0 12px rgba(232,185,35,0); }
 }
 
-.offer-title {
-  font-size: 42px;
-  font-weight: 900;
-  line-height: 1.3;
-  margin-bottom: 16px;
-}
-
+.offer-title { font-size: 42px; font-weight: 900; line-height: 1.3; margin-bottom: 16px; }
 .offer-title .gold { color: var(--gold); }
-
-.offer-desc {
-  font-size: 18px;
-  color: rgba(255,255,255,0.8);
-  margin-bottom: 50px;
-  line-height: 1.8;
-}
+.offer-desc { font-size: 18px; color: rgba(255,255,255,0.8); margin-bottom: 50px; line-height: 1.8; }
 
 .offer-cards {
   display: flex;
@@ -585,33 +527,16 @@ section { padding: 90px 5%; }
   background: rgba(255,255,255,0.12);
 }
 
-.offer-card.featured {
-  border-color: var(--gold);
-  background: rgba(232,185,35,0.1);
-}
-
+.offer-card.featured { border-color: var(--gold); background: rgba(232,185,35,0.1); }
 .offer-card-icon { font-size: 48px; margin-bottom: 16px; }
-
-.offer-card-title {
-  font-size: 20px;
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-
-.offer-card-desc {
-  font-size: 13px;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.7;
-  margin-bottom: 16px;
-}
+.offer-card-title { font-size: 20px; font-weight: 800; margin-bottom: 8px; }
+.offer-card-desc { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 16px; }
 
 .plus-icon {
   position: absolute;
-  top: 50%;
-  left: -36px;
+  top: 50%; left: -36px;
   transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
+  width: 48px; height: 48px;
   background: var(--gold);
   border-radius: 50%;
   display: flex;
@@ -637,25 +562,9 @@ section { padding: 90px 5%; }
   flex-wrap: wrap;
 }
 
-.price-old {
-  font-size: 22px;
-  color: rgba(255,255,255,0.4);
-  text-decoration: line-through;
-}
-
-.price-new {
-  font-size: 48px;
-  font-weight: 900;
-  color: var(--gold);
-  line-height: 1;
-}
-
-.price-note {
-  font-size: 14px;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.6;
-  text-align: right;
-}
+.price-old { font-size: 22px; color: rgba(255,255,255,0.4); text-decoration: line-through; }
+.price-new { font-size: 48px; font-weight: 900; color: var(--gold); line-height: 1; }
+.price-note { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6; text-align: right; }
 
 /* ===== COURSES ===== */
 .courses-tabs {
@@ -685,11 +594,7 @@ section { padding: 90px 5%; }
   border-color: var(--purple);
 }
 
-.courses-container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
+.courses-container { max-width: 1100px; margin: 0 auto; }
 .course-tab-content { display: none; }
 .course-tab-content.active { display: block; }
 
@@ -704,8 +609,7 @@ section { padding: 90px 5%; }
 }
 
 .course-header-icon {
-  width: 80px;
-  height: 80px;
+  width: 80px; height: 80px;
   background: rgba(255,255,255,0.15);
   border-radius: 22px;
   display: flex;
@@ -753,27 +657,9 @@ section { padding: 90px 5%; }
   box-shadow: 0 8px 25px rgba(74,44,138,0.12);
 }
 
-.level-number {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--purple-light);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 6px;
-}
-
-.level-name {
-  font-size: 16px;
-  font-weight: 800;
-  color: var(--dark);
-  margin-bottom: 8px;
-}
-
-.level-skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
+.level-number { font-size: 11px; font-weight: 700; color: var(--purple-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+.level-name { font-size: 16px; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
+.level-skills { display: flex; flex-wrap: wrap; gap: 6px; }
 
 .skill-tag {
   background: var(--purple-soft);
@@ -785,9 +671,7 @@ section { padding: 90px 5%; }
 }
 
 /* ===== PRICING TABLE ===== */
-.pricing-section {
-  background: var(--gray-light);
-}
+.pricing-section { background: var(--gray-light); }
 
 .pricing-grid {
   display: grid;
@@ -822,26 +706,11 @@ section { padding: 90px 5%; }
   color: var(--dark);
 }
 
-.price-card-type {
-  font-size: 12px;
-  font-weight: 700;
-  opacity: 0.8;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 6px;
-}
-
+.price-card-type { font-size: 12px; font-weight: 700; opacity: 0.8; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
 .price-card-title { font-size: 20px; font-weight: 900; margin-bottom: 4px; }
 .price-card-stage { font-size: 12px; opacity: 0.8; }
-
-.price-card-amount {
-  font-size: 38px;
-  font-weight: 900;
-  margin-top: 12px;
-}
-
+.price-card-amount { font-size: 38px; font-weight: 900; margin-top: 12px; }
 .price-card-amount span { font-size: 16px; font-weight: 400; opacity: 0.8; }
-
 .price-card-body { padding: 24px; }
 
 .price-item {
@@ -859,8 +728,7 @@ section { padding: 90px 5%; }
 
 .price-item::before {
   content: '✓';
-  width: 22px;
-  height: 22px;
+  width: 22px; height: 22px;
   background: var(--purple-soft);
   color: var(--purple);
   border-radius: 50%;
@@ -887,25 +755,10 @@ section { padding: 90px 5%; }
   margin: 0 auto;
 }
 
-.contact-text h2 {
-  font-size: 36px;
-  font-weight: 900;
-  margin-bottom: 16px;
-  line-height: 1.3;
-}
+.contact-text h2 { font-size: 36px; font-weight: 900; margin-bottom: 16px; line-height: 1.3; }
+.contact-text p { font-size: 16px; color: rgba(255,255,255,0.7); line-height: 1.8; margin-bottom: 32px; }
 
-.contact-text p {
-  font-size: 16px;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.8;
-  margin-bottom: 32px;
-}
-
-.social-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
+.social-buttons { display: flex; flex-direction: column; gap: 14px; }
 
 .social-btn {
   display: flex;
@@ -922,29 +775,13 @@ section { padding: 90px 5%; }
 
 .social-btn:hover { transform: translateX(-6px); }
 
-.social-btn.whatsapp {
-  background: #25D366;
-  color: white;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-}
-
+.social-btn.whatsapp { background: #25D366; color: white; box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
 .social-btn.whatsapp:hover { box-shadow: 0 8px 30px rgba(37,211,102,0.6); }
-
-.social-btn.instagram {
-  background: linear-gradient(135deg, #E1306C, #833AB4, #F77737);
-  color: white;
-  box-shadow: 0 4px 20px rgba(225,48,108,0.4);
-}
-
-.social-btn.facebook {
-  background: #1877F2;
-  color: white;
-  box-shadow: 0 4px 20px rgba(24,119,242,0.4);
-}
+.social-btn.instagram { background: linear-gradient(135deg, #E1306C, #833AB4, #F77737); color: white; box-shadow: 0 4px 20px rgba(225,48,108,0.4); }
+.social-btn.facebook { background: #1877F2; color: white; box-shadow: 0 4px 20px rgba(24,119,242,0.4); }
 
 .social-btn-icon {
-  width: 42px;
-  height: 42px;
+  width: 42px; height: 42px;
   background: rgba(255,255,255,0.2);
   border-radius: 12px;
   display: flex;
@@ -966,20 +803,8 @@ section { padding: 90px 5%; }
 }
 
 .contact-visual .big-icon { font-size: 80px; margin-bottom: 20px; }
-
-.contact-visual h3 {
-  font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 10px;
-  color: var(--gold);
-}
-
-.contact-visual p {
-  color: rgba(255,255,255,0.7);
-  font-size: 15px;
-  line-height: 1.7;
-  margin-bottom: 24px;
-}
+.contact-visual h3 { font-size: 22px; font-weight: 800; margin-bottom: 10px; color: var(--gold); }
+.contact-visual p { color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.7; margin-bottom: 24px; }
 
 /* ===== FOOTER ===== */
 footer {
@@ -991,25 +816,14 @@ footer {
   border-top: 1px solid rgba(255,255,255,0.08);
 }
 
-footer .footer-logo {
-  font-size: 24px;
-  font-weight: 900;
-  margin-bottom: 8px;
-}
-
+footer .footer-logo { font-size: 24px; font-weight: 900; margin-bottom: 8px; }
 footer .edu { color: var(--purple-light); }
 footer .rise { color: var(--gold); }
 
 /* ===== KIDS IMAGES SECTION ===== */
-.images-section {
-  padding: 0;
-  overflow: hidden;
-}
+.images-section { padding: 0; overflow: hidden; }
 
-.images-strip {
-  display: flex;
-  gap: 0;
-}
+.images-strip { display: flex; gap: 0; }
 
 .img-block {
   flex: 1;
@@ -1037,11 +851,7 @@ footer .rise { color: var(--gold); }
   padding: 20px;
 }
 
-.img-label {
-  color: white;
-  font-size: 16px;
-  font-weight: 800;
-}
+.img-label { color: white; font-size: 16px; font-weight: 800; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
@@ -1083,7 +893,9 @@ footer .rise { color: var(--gold); }
 <!-- ===== NAVBAR ===== -->
 <nav>
   <a href="#" class="logo-area">
-    <div class="logo-placeholder">ضع لوجو</div>
+    <div class="logo-placeholder">
+      <img src="Copy of Edu Rise-logo-02.png" alt="EduRise Logo">
+    </div>
     <div class="logo-text">
       <span><span class="edu">Edu</span><span class="rise">Rise</span></span>
       <span>Academy</span>
@@ -1117,7 +929,7 @@ footer .rise { color: var(--gold); }
         كورسات احترافية في البرمجة واللغة الإنجليزية مع مدربين متخصصين.
       </p>
       <div class="hero-buttons">
-        <a href="https://wa.me/201000000000?text=مرحباً، أريد الاستفسار عن كورسات EduRise" target="_blank" class="btn-primary">
+        <a href="https://api.whatsapp.com/send/?phone=201026128217&text&type=phone_number&app_absent=0" target="_blank" class="btn-primary">
           📲 سجّل الآن
         </a>
         <a href="#courses" class="btn-secondary">
@@ -1171,19 +983,19 @@ footer .rise { color: var(--gold); }
 <div class="images-section">
   <div class="images-strip">
     <div class="img-block">
-      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=280&fit=crop" alt="أطفال يتعلمون">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop&q=90" alt="أطفال يتعلمون">
       <div class="img-overlay"><div class="img-label">🎓 تعلّم ممتع</div></div>
     </div>
     <div class="img-block">
-      <img src="https://images.unsplash.com/photo-1588912914071-bc8ba2e82a7e?w=400&h=280&fit=crop" alt="طفل يبرمج">
+      <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&h=400&fit=crop&q=90" alt="طفل يبرمج">
       <div class="img-overlay"><div class="img-label">💻 برمجة للأطفال</div></div>
     </div>
     <div class="img-block">
-      <img src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?w=400&h=280&fit=crop" alt="أطفال في الأكاديمية">
+      <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=600&h=400&fit=crop&q=90" alt="أطفال في الأكاديمية">
       <div class="img-overlay"><div class="img-label">🌟 إنجليزي مبدع</div></div>
     </div>
     <div class="img-block">
-      <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=280&fit=crop" alt="تعليم أونلاين">
+      <img src="https://images.unsplash.com/photo-1491308056676-205b7c9a7dc1?w=600&h=400&fit=crop&q=90" alt="تعليم أونلاين">
       <div class="img-overlay"><div class="img-label">🚀 مستقبل رقمي</div></div>
     </div>
   </div>
@@ -1265,7 +1077,7 @@ footer .rise { color: var(--gold); }
         <strong style="color: var(--gold);">وفّر 50% 🎉</strong>
       </div>
     </div>
-    <a href="https://wa.me/201000000000?text=مرحباً، أريد الاستفسار عن العرض الخاص - إنجليزي + برمجة" target="_blank" class="btn-primary" style="font-size:18px; padding:18px 48px;">
+    <a href="https://api.whatsapp.com/send/?phone=201026128217&text&type=phone_number&app_absent=0" target="_blank" class="btn-primary" style="font-size:18px; padding:18px 48px;">
       📲 احجز مقعدك الآن
     </a>
   </div>
@@ -1288,7 +1100,6 @@ footer .rise { color: var(--gold); }
   </div>
 
   <div class="courses-container">
-
     <!-- ENGLISH -->
     <div id="tab-english" class="course-tab-content active">
       <div class="course-header">
@@ -1389,7 +1200,6 @@ footer .rise { color: var(--gold); }
         <div class="level-card"><div class="level-number">Expert</div><div class="level-name">موقعي على الإنترنت</div><div class="level-skills"><span class="skill-tag">GitHub Pages</span><span class="skill-tag">موقع متكامل</span><span class="skill-tag">عرض تخرج</span></div></div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -1402,7 +1212,6 @@ footer .rise { color: var(--gold); }
   </div>
 
   <div class="pricing-grid">
-    <!-- Coding & English Bundle -->
     <div class="price-card animate-in" style="border-color: var(--gold);">
       <div class="price-card-header gold-header">
         <div class="price-card-type">⭐ العرض الأميز</div>
@@ -1420,7 +1229,6 @@ footer .rise { color: var(--gold); }
       </div>
     </div>
 
-    <!-- Primary Private -->
     <div class="price-card animate-in">
       <div class="price-card-header">
         <div class="price-card-type">خاص فردي</div>
@@ -1437,7 +1245,6 @@ footer .rise { color: var(--gold); }
       </div>
     </div>
 
-    <!-- Primary Groups -->
     <div class="price-card animate-in">
       <div class="price-card-header">
         <div class="price-card-type">مجموعات</div>
@@ -1454,7 +1261,6 @@ footer .rise { color: var(--gold); }
       </div>
     </div>
 
-    <!-- Prep Private -->
     <div class="price-card animate-in">
       <div class="price-card-header">
         <div class="price-card-type">خاص فردي</div>
@@ -1471,7 +1277,6 @@ footer .rise { color: var(--gold); }
       </div>
     </div>
 
-    <!-- Prep Groups -->
     <div class="price-card animate-in">
       <div class="price-card-header">
         <div class="price-card-type">مجموعات</div>
@@ -1487,7 +1292,6 @@ footer .rise { color: var(--gold); }
       </div>
     </div>
 
-    <!-- Daily School -->
     <div class="price-card animate-in">
       <div class="price-card-header gold-header">
         <div class="price-card-type">🏫 المدرسة اليومية</div>
@@ -1513,21 +1317,21 @@ footer .rise { color: var(--gold); }
       <h2>جاهز تبدأ؟<br><span style="color:var(--gold)">تواصل معنا الآن! 🚀</span></h2>
       <p>سجّل طفلك اليوم وابدأ رحلة التعلم المميزة. فريقنا جاهز للرد على كل أسئلتك وتقديم أفضل باقة تناسب احتياجاتك.</p>
       <div class="social-buttons">
-        <a href="https://wa.me/201000000000?text=مرحباً، أريد الاستفسار عن كورسات EduRise Academy" target="_blank" class="social-btn whatsapp">
+        <a href="https://api.whatsapp.com/send/?phone=201026128217&text&type=phone_number&app_absent=0" target="_blank" class="social-btn whatsapp">
           <div class="social-btn-icon">📲</div>
           <div class="social-btn-text">
             <div class="label">تواصل معنا عبر</div>
             <div class="name">WhatsApp</div>
           </div>
         </a>
-        <a href="https://www.instagram.com/edurise" target="_blank" class="social-btn instagram">
+        <a href="https://www.instagram.com/edu_rise0/" target="_blank" class="social-btn instagram">
           <div class="social-btn-icon">📸</div>
           <div class="social-btn-text">
             <div class="label">تابعنا على</div>
             <div class="name">Instagram</div>
           </div>
         </a>
-        <a href="https://www.facebook.com/edurise" target="_blank" class="social-btn facebook">
+        <a href="https://www.facebook.com/edurise2" target="_blank" class="social-btn facebook">
           <div class="social-btn-icon">👍</div>
           <div class="social-btn-text">
             <div class="label">لايك صفحتنا على</div>
@@ -1540,7 +1344,7 @@ footer .rise { color: var(--gold); }
       <div class="big-icon">🎓</div>
       <h3>ابدأ اليوم!</h3>
       <p>انضم لأكاديمية EduRise وامنح طفلك مهارات المستقبل في البرمجة والإنجليزي من راحة بيتك</p>
-      <a href="https://wa.me/201000000000?text=مرحباً، أريد تسجيل طفلي في EduRise Academy" target="_blank" class="btn-primary" style="justify-content:center; width:100%;">
+      <a href="https://api.whatsapp.com/send/?phone=201026128217&text&type=phone_number&app_absent=0" target="_blank" class="btn-primary" style="justify-content:center; width:100%;">
         📲 سجّل الآن مجاناً
       </a>
     </div>
