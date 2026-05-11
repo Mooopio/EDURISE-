@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduRise — باقات التعلم</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap');
+
+  :root {
+    --gold: #F5A623;
+    --gold-light: #FFD080;
+    --gold-dark: #C07D0A;
+    --navy: #0B1526;
+    --navy-mid: #122040;
+    --navy-soft: #1A2E55;
+    --accent: #00C9A7;
+    --accent-glow: rgba(0,201,167,0.25);
+    --pink: #FF6B9D;
+    --text: #E8EDF5;
+    --text-muted: #8A9BBC;
+    --card-bg: rgba(18,32,64,0.85);
+    --border: rgba(245,166,35,0.18);
+    --radius: 20px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  /* ─── BACKGROUND ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(245,166,35,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 85% 80%, rgba(0,201,167,0.07) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 40% at 50% 50%, rgba(11,21,38,0) 0%, rgba(11,21,38,0.6) 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ─── NOISE TEXTURE ─── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  .wrap { position: relative; z-index: 1; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(11,21,38,0.7);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.3s;
+  }
+
+  .logo {
+    font-family: 'Cairo', sans-serif;
+    font-weight: 900;
+    font-size: 1.6rem;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+  }
+
+  .logo span {
+    background: linear-gradient(135deg, var(--accent), #00E5C8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-badge {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--navy);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 50px;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 140px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    animation: orb-float 8s ease-in-out infinite;
+  }
+  .hero-orb-1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(245,166,35,0.12), transparent 70%);
+    top: -100px; right: -100px;
+    animation-delay: 0s;
+  }
+  .hero-orb-2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,201,167,0.1), transparent 70%);
+    bottom: -80px; left: -80px;
+    animation-delay: -4s;
+  }
+
+  @keyframes orb-float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+  }
+
+  .hero-inner { max-width: 800px; }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.3);
+    color: var(--gold-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: 28px;
+    animation: fade-up 0.8s ease both;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: pulse-dot 2s ease infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 6vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    animation: fade-up 0.8s ease 0.1s both;
+  }
+
+  .hero h1 .highlight {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    font-weight: 400;
+    animation: fade-up 0.8s ease 0.2s both;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--navy);
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 16px 40px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 40px rgba(245,166,35,0.35);
+    transition: all 0.3s ease;
+    animation: fade-up 0.8s ease 0.3s both;
+    text-decoration: none;
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 60px rgba(245,166,35,0.5);
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    margin-top: 60px;
+    animation: fade-up 0.8s ease 0.4s both;
+  }
+
+  .stat-item { text-align: center; }
+  .stat-num {
+    display: block;
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .stat-label { font-size: 0.82rem; color: var(--text-muted); font-weight: 500; }
+
+  /* ─── URGENT BANNER ─── */
+  .urgent-banner {
+    background: linear-gradient(90deg, #1A0A00, #2D1500, #1A0A00);
+    border-top: 1px solid rgba(245,166,35,0.3);
+    border-bottom: 1px solid rgba(245,166,35,0.3);
+    padding: 20px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .urgent-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(245,166,35,0.06), transparent);
+    animation: shimmer 3s ease infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .urgent-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .urgent-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #FF4500, #FF6B00);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  .urgent-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold-light);
+  }
+
+  .urgent-text strong { color: var(--gold); }
+
+  .countdown {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .cd-block {
+    background: rgba(245,166,35,0.12);
+    border: 1px solid rgba(245,166,35,0.3);
+    border-radius: 8px;
+    padding: 6px 10px;
+    text-align: center;
+    min-width: 48px;
+  }
+
+  .cd-num {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .cd-unit { font-size: 0.6rem; color: var(--text-muted); display: block; }
+  .cd-sep { font-size: 1.2rem; font-weight: 900; color: var(--gold); animation: blink 1s step-end infinite; }
+
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+  /* ─── SECTION ─── */
+  section { padding: 100px 24px; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .section-title .gold { color: var(--gold); }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ─── PACKAGES GRID ─── */
+  .packages-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+
+  /* ─── CARD BASE ─── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    cursor: default;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  .card.visible {
+    animation: card-appear 0.6s ease forwards;
+  }
+
+  @keyframes card-appear {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--radius);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+
+  .card:hover { transform: translateY(-8px); }
+  .card:hover::before { opacity: 1; }
+
+  /* Gold card */
+  .card-gold::before { background: radial-gradient(ellipse at top right, rgba(245,166,35,0.1), transparent 60%); }
+  .card-gold:hover { border-color: rgba(245,166,35,0.45); box-shadow: 0 20px 60px rgba(245,166,35,0.15); }
+
+  /* Accent card */
+  .card-accent::before { background: radial-gradient(ellipse at top right, rgba(0,201,167,0.1), transparent 60%); }
+  .card-accent:hover { border-color: rgba(0,201,167,0.4); box-shadow: 0 20px 60px rgba(0,201,167,0.12); }
+
+  /* Pink card */
+  .card-pink::before { background: radial-gradient(ellipse at top right, rgba(255,107,157,0.1), transparent 60%); }
+  .card-pink:hover { border-color: rgba(255,107,157,0.4); box-shadow: 0 20px 60px rgba(255,107,157,0.12); }
+
+  /* Premium card */
+  .card-premium {
+    border-color: rgba(245,166,35,0.5);
+    background: linear-gradient(145deg, rgba(26,34,60,0.95), rgba(18,32,64,0.9));
+    box-shadow: 0 0 60px rgba(245,166,35,0.1);
+  }
+  .card-premium::before { background: radial-gradient(ellipse at top, rgba(245,166,35,0.15), transparent 60%); }
+  .card-premium:hover { transform: translateY(-10px); box-shadow: 0 25px 70px rgba(245,166,35,0.25); }
+
+  /* BADGE */
+  .card-badge {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+  }
+
+  .badge-hot { background: linear-gradient(135deg, #FF4500, #FF6B00); color: #fff; }
+  .badge-best { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: var(--navy); }
+  .badge-premium { background: linear-gradient(135deg, #8B5CF6, #6D28D9); color: #fff; }
+  .badge-new { background: linear-gradient(135deg, var(--accent), #00A389); color: var(--navy); }
+
+  /* CARD ICON */
+  .card-icon {
+    width: 58px; height: 58px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .icon-gold { background: rgba(245,166,35,0.15); }
+  .icon-accent { background: rgba(0,201,167,0.15); }
+  .icon-pink { background: rgba(255,107,157,0.15); }
+  .icon-purple { background: rgba(139,92,246,0.15); }
+  .icon-blue { background: rgba(59,130,246,0.15); }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+
+  .card-subtitle {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+  }
+
+  /* FEATURES LIST */
+  .features-list {
+    list-style: none;
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .features-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #C8D4E8;
+  }
+
+  .feat-check {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
+  .check-gold { background: rgba(245,166,35,0.2); color: var(--gold); }
+  .check-accent { background: rgba(0,201,167,0.2); color: var(--accent); }
+  .check-pink { background: rgba(255,107,157,0.2); color: var(--pink); }
+  .check-purple { background: rgba(139,92,246,0.2); color: #A78BFA; }
+
+  /* PRICE */
+  .price-block {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 22px;
+    margin-bottom: 22px;
+  }
+
+  .price-old {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    margin-bottom: 4px;
+  }
+
+  .price-new {
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .price-gold { color: var(--gold); }
+  .price-accent { color: var(--accent); }
+  .price-pink { color: var(--pink); }
+  .price-purple { color: #A78BFA; }
+
+  .price-period {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  .savings-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 50px;
+    background: rgba(245,166,35,0.12);
+    color: var(--gold-light);
+    border: 1px solid rgba(245,166,35,0.2);
+    margin-top: 6px;
+  }
+
+  /* CTA BUTTON */
+  .card-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.1);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .card-btn:hover::after { opacity: 1; }
+  .card-btn:hover { transform: translateY(-2px); }
+
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--navy);
+    box-shadow: 0 8px 24px rgba(245,166,35,0.3);
+  }
+
+  .btn-accent {
+    background: linear-gradient(135deg, var(--accent), #00A389);
+    color: var(--navy);
+    box-shadow: 0 8px 24px rgba(0,201,167,0.25);
+  }
+
+  .btn-pink {
+    background: linear-gradient(135deg, var(--pink), #E0436E);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(255,107,157,0.25);
+  }
+
+  .btn-outline-gold {
+    background: transparent;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+  }
+  .btn-outline-gold:hover { background: rgba(245,166,35,0.1); }
+
+  .btn-purple {
+    background: linear-gradient(135deg, #8B5CF6, #6D28D9);
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(139,92,246,0.25);
+  }
+
+  /* ─── SIBLINGS CARD (full-width) ─── */
+  .card-wide {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .siblings-visual {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .sibling-option {
+    text-align: center;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 24px 28px;
+    flex: 1;
+    min-width: 150px;
+    transition: all 0.3s ease;
+  }
+
+  .sibling-option:hover {
+    border-color: rgba(245,166,35,0.35);
+    background: rgba(245,166,35,0.06);
+    transform: translateY(-4px);
+  }
+
+  .sibling-pct {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .sibling-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .sibling-divider {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    align-self: center;
+  }
+
+  /* ─── LEVELS SECTION ─── */
+  .levels-track {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .levels-track::before {
+    content: '';
+    position: absolute;
+    right: 30px;
+    top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--accent));
+    border-radius: 2px;
+  }
+
+  .level-item {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-bottom: 24px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s ease;
+  }
+
+  .level-item.visible { opacity: 1; transform: translateX(0); }
+
+  .level-content {
+    flex: 1;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 28px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+  }
+
+  .level-content:hover {
+    border-color: rgba(245,166,35,0.35);
+    transform: translateX(-6px);
+  }
+
+  .level-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .level-name {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text);
+  }
+
+  .level-price-row { display: flex; align-items: baseline; gap: 12px; }
+
+  .level-price {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--gold);
+  }
+
+  .level-price-old {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    text-decoration: line-through;
+  }
+
+  .level-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--navy);
+  }
+
+  .level-dot {
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 3px solid var(--navy);
+    box-shadow: 0 0 12px rgba(245,166,35,0.5);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── URGENT SECTION ─── */
+  .urgent-section {
+    max-width: 780px;
+    margin: 0 auto;
+    background: linear-gradient(145deg, rgba(20,8,0,0.9), rgba(30,15,0,0.9));
+    border: 1px solid rgba(245,166,35,0.4);
+    border-radius: 24px;
+    padding: 56px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+  }
+
+  .urgent-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at top, rgba(245,166,35,0.08), transparent 60%);
+    pointer-events: none;
+  }
+
+  .urgent-glow {
+    position: absolute;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(245,166,35,0.12), transparent 70%);
+    top: -100px; left: 50%; transform: translateX(-50%);
+    animation: orb-float 5s ease-in-out infinite;
+  }
+
+  .urgent-section .section-tag { color: #FF6B00; }
+
+  .urgent-section h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 900;
+    margin-bottom: 12px;
+    position: relative;
+  }
+
+  .timer-large {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 32px 0;
+    position: relative;
+  }
+
+  .timer-block {
+    background: rgba(245,166,35,0.08);
+    border: 1px solid rgba(245,166,35,0.25);
+    border-radius: 14px;
+    padding: 14px 20px;
+    min-width: 80px;
+  }
+
+  .timer-num {
+    display: block;
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .timer-unit { font-size: 0.72rem; color: var(--text-muted); display: block; margin-top: 4px; }
+
+  .timer-sep {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--gold);
+    align-self: center;
+    padding-bottom: 16px;
+    animation: blink 1s step-end infinite;
+  }
+
+  .urgent-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 28px;
+  }
+
+  .urgent-price-new {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--gold);
+  }
+
+  .urgent-price-old {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    text-decoration: line-through;
+  }
+
+  .urgent-note {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+  }
+
+  .urgent-note strong { color: #FF6B00; }
+
+  .btn-urgent {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--navy);
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    padding: 18px 50px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 50px rgba(245,166,35,0.4);
+    transition: all 0.3s ease;
+    animation: pulse-btn 3s ease infinite;
+  }
+
+  @keyframes pulse-btn {
+    0%, 100% { box-shadow: 0 0 50px rgba(245,166,35,0.4); }
+    50% { box-shadow: 0 0 80px rgba(245,166,35,0.6); }
+  }
+
+  .btn-urgent:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  }
+
+  .spots-bar {
+    margin-top: 28px;
+  }
+
+  .spots-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+
+  .spots-track {
+    height: 6px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .spots-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), #FF6B00);
+    border-radius: 6px;
+    width: 0%;
+    transition: width 1.5s ease;
+  }
+
+  .spots-fill.loaded { width: 75%; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    padding: 48px 24px 36px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-size: 1.8rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+
+  .footer-tagline {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+  }
+
+  .footer-bottom {
+    font-size: 0.78rem;
+    color: rgba(138,155,188,0.5);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 20px; }
+    .hero-stats { gap: 28px; }
+    .card-wide { grid-template-columns: 1fr; }
+    .levels-track::before { display: none; }
+    .level-dot { display: none; }
+    .level-item { flex-direction: column; align-items: stretch; gap: 0; }
+    .level-content:hover { transform: translateY(-4px); }
+  }
+
+  @media (max-width: 600px) {
+    section { padding: 70px 16px; }
+    .packages-grid { grid-template-columns: 1fr; }
+    .hero-stats { flex-wrap: wrap; gap: 20px; }
+    .urgent-section { padding: 40px 24px; }
+    .timer-num { font-size: 2rem; }
+    .timer-block { min-width: 60px; padding: 12px 14px; }
+    .urgent-price-new { font-size: 2.8rem; }
+    .siblings-visual { flex-direction: column; }
+    .card-wide { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">Edu<span>Rise</span></div>
+    <div class="nav-badge">🚀 عروض خاصة</div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-inner">
+      <div class="hero-tag">منصة EduRise للتعلم المتقدم</div>
+      <h1>ابدأ صح… وخلي طفلك<br><span class="highlight">مستعد للمستقبل</span></h1>
+      <p class="hero-sub">باقات تعليمية متكاملة تجمع بين التأسيس الدراسي القوي ومهارات التكنولوجيا للجيل القادم</p>
+      <a href="#packages" class="hero-cta">استكشف الباقات 🎯</a>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">باقات مميزة</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">٣</span>
+          <span class="stat-label">مستويات برمجة</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">٢٠٪</span>
+          <span class="stat-label">توفير على الكورسات</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- URGENT BANNER -->
+  <div class="urgent-banner">
+    <div class="urgent-inner">
+      <div class="urgent-label">⏳ عرض محدود</div>
+      <div class="urgent-text"><strong>72 ساعة فقط</strong> — اشترك في كورس البرمجة بسعر 2000 بدل 2500</div>
+      <div class="countdown">
+        <div class="cd-block"><span class="cd-num" id="cd-h">71</span><span class="cd-unit">ساعة</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-block"><span class="cd-num" id="cd-m">59</span><span class="cd-unit">دقيقة</span></div>
+        <span class="cd-sep">:</span>
+        <div class="cd-block"><span class="cd-num" id="cd-s">59</span><span class="cd-unit">ثانية</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PACKAGES -->
+  <section id="packages">
+    <div class="section-header">
+      <div class="section-tag">الباقات التعليمية</div>
+      <h2 class="section-title">اختار الباقة <span class="gold">المناسبة لطفلك</span></h2>
+      <p class="section-sub">كل باقة مصممة بعناية لتناسب احتياجات طفلك في مرحلة تعليمية مختلفة</p>
+    </div>
+
+    <div class="packages-grid">
+
+      <!-- CARD 1: البداية الذكية -->
+      <div class="card card-gold">
+        <div class="card-icon icon-gold">🚀</div>
+        <div class="card-title">باقة البداية الذكية</div>
+        <div class="card-subtitle">Smart LaunchPad Package</div>
+        <ul class="features-list">
+          <li><span class="feat-check check-gold">✓</span> 3 شهور تأسيس عربي + إنجليزي</li>
+          <li><span class="feat-check check-gold">✓</span> حساب ذهني</li>
+          <li><span class="feat-check check-gold">✓</span> قرآن كريم</li>
+          <li><span class="feat-check check-gold">✓</span> خصم 20% على أول كورس برمجة</li>
+        </ul>
+        <div class="price-block">
+          <div class="price-old">4,000 جنيه</div>
+          <div class="price-new price-gold">3,300<span style="font-size:1rem;font-weight:500"> جنيه</span></div>
+          <div class="price-period">3 شهور كاملة</div>
+          <div class="savings-tag">⚡ وفر 700 جنيه</div>
+        </div>
+        <button class="card-btn btn-gold">احجز الآن</button>
+      </div>
+
+      <!-- CARD 2: طفل المستقبل -->
+      <div class="card card-premium">
+        <div class="card-badge badge-best">⭐ الأكثر مبيعًا</div>
+        <div class="card-icon icon-accent">💡</div>
+        <div class="card-title">باقة طفل المستقبل</div>
+        <div class="card-subtitle">Future Child Package</div>
+        <ul class="features-list">
+          <li><span class="feat-check check-accent">✓</span> كورس برمجة Level 1</li>
+          <li><span class="feat-check check-accent">✓</span> مادة يختارها ولي الأمر</li>
+          <li><span class="feat-check check-accent" style="padding-right:8px; font-size:0.78rem; color:var(--text-muted)">  ↳</span> <span style="color:var(--text-muted);font-size:0.85rem">ماث – إنجليزي – عربي</span></li>
+        </ul>
+        <div class="price-block">
+          <div class="price-old">3,200 جنيه</div>
+          <div class="price-new price-accent">2,800<span style="font-size:1rem;font-weight:500"> جنيه</span></div>
+          <div class="price-period">أفضل توازن بين التفوق الدراسي ومهارات المستقبل</div>
+          <div class="savings-tag">⚡ وفر 400 جنيه</div>
+        </div>
+        <button class="card-btn btn-accent">احجز الآن ⭐</button>
+      </div>
+
+      <!-- CARD 3: التميز الكامل -->
+      <div class="card card-pink">
+        <div class="card-badge badge-premium">👑 Premium</div>
+        <div class="card-icon icon-purple">🏆</div>
+        <div class="card-title">باقة التميز الكامل</div>
+        <div class="card-subtitle">Full Excellence Package</div>
+        <ul class="features-list">
+          <li><span class="feat-check check-purple">✓</span> كورس برمجة</li>
+          <li><span class="feat-check check-purple">✓</span> مادة دراسية</li>
+          <li><span class="feat-check check-purple">✓</span> حساب ذهني</li>
+          <li><span class="feat-check check-purple">✓</span> متابعة شهرية خاصة</li>
+        </ul>
+        <div class="price-block">
+          <div class="price-old">4,500 جنيه</div>
+          <div class="price-new price-pink" style="color:#A78BFA">3,500<span style="font-size:1rem;font-weight:500"> جنيه</span></div>
+          <div class="price-period">برنامج متكامل مع متابعة أول بأول</div>
+          <div class="savings-tag">⚡ وفر 1000 جنيه</div>
+        </div>
+        <button class="card-btn btn-purple">احجز الآن 👑</button>
+      </div>
+
+      <!-- CARD WIDE: الأشقاء -->
+      <div class="card card-gold card-wide">
+        <div>
+          <div class="card-badge badge-hot">🔥 عرض العائلة</div>
+          <div style="margin-top:14px">
+            <div class="card-icon icon-gold">👨‍👩‍👧‍👦</div>
+            <div class="card-title">باقة الأشقاء</div>
+            <div class="card-subtitle">عندك طفلين؟ وفر أكتر مع خصومات العائلة</div>
+            <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:24px; line-height:1.7;">
+              خصومات خاصة للعائلات علشان كل أولادك ياخدوا نفس فرصة النجاح والتطور ✨
+            </p>
+            <button class="card-btn btn-gold" style="max-width:220px">احجز للأشقاء 🔥</button>
+          </div>
+        </div>
+        <div class="siblings-visual">
+          <div class="sibling-option">
+            <div class="sibling-pct">35%</div>
+            <div class="sibling-desc">خصم على<br><strong>الطفل الثاني</strong></div>
+          </div>
+          <div class="sibling-divider">أو</div>
+          <div class="sibling-option">
+            <div class="sibling-pct">25%</div>
+            <div class="sibling-desc">خصم على<br><strong>كل طفل</strong><br>عند اشتراك طفلين</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CODING LEVELS -->
+  <section id="levels" style="background:rgba(0,0,0,0.15);">
+    <div class="section-header">
+      <div class="section-tag">مسار التطور</div>
+      <h2 class="section-title">باقة <span class="gold">محترف البرمجة</span></h2>
+      <p class="section-sub">مش كورس وخلاص — دي رحلة كاملة علشان طفلك يبقى محترف برمجة. ابدأ خطوة بخطوة ووفر أكتر 🚀</p>
+    </div>
+
+    <div class="levels-track">
+
+      <div class="level-item">
+        <div class="level-content">
+          <div class="level-header">
+            <div class="level-name">💻 Level 1 — البداية</div>
+          </div>
+          <div class="level-price-row">
+            <div class="level-price">2,500</div>
+            <span style="color:var(--text-muted);font-size:0.85rem">جنيه</span>
+          </div>
+          <div style="font-size:0.82rem;color:var(--text-muted);margin-top:6px">أول خطوة في رحلة البرمجة</div>
+        </div>
+        <div class="level-dot"></div>
+      </div>
+
+      <div class="level-item">
+        <div class="level-content">
+          <div class="level-header">
+            <div class="level-name">🔥 Level 1 + 2 — المتقدم</div>
+            <span class="level-badge">وفر 500</span>
+          </div>
+          <div class="level-price-row">
+            <div class="level-price">4,500</div>
+            <span style="color:var(--text-muted);font-size:0.85rem">جنيه</span>
+            <span class="level-price-old">5,000</span>
+          </div>
+          <div style="font-size:0.82rem;color:var(--text-muted);margin-top:6px">مستويان متكاملان بسعر أقل</div>
+        </div>
+        <div class="level-dot" style="background:var(--accent);box-shadow:0 0 12px rgba(0,201,167,0.5)"></div>
+      </div>
+
+      <div class="level-item">
+        <div class="level-content" style="border-color:rgba(245,166,35,0.4);background:linear-gradient(145deg,rgba(26,34,60,0.95),rgba(18,32,64,0.9));">
+          <div class="level-header">
+            <div class="level-name">⭐ Level 1 + 2 + 3 — المحترف</div>
+            <span class="level-badge">⭐ الأفضل</span>
+          </div>
+          <div class="level-price-row">
+            <div class="level-price">6,150</div>
+            <span style="color:var(--text-muted);font-size:0.85rem">جنيه</span>
+            <span class="level-price-old">7,500</span>
+          </div>
+          <div style="font-size:0.82rem;color:var(--text-muted);margin-top:6px">الباقة الكاملة — احترف البرمجة من الصفر ووفر 1,350 جنيه</div>
+        </div>
+        <div class="level-dot" style="width:22px;height:22px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));box-shadow:0 0 16px rgba(245,166,35,0.6)"></div>
+      </div>
+
+      <div style="text-align:center;margin-top:36px">
+        <button class="card-btn btn-gold" style="max-width:280px;padding:16px;border-radius:50px;font-size:1rem;">ابدأ رحلة البرمجة 🚀</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- URGENT OFFER -->
+  <section id="offer">
+    <div class="urgent-section">
+      <div class="urgent-glow"></div>
+      <div class="section-tag">⏳ عرض الفرصة الذهبية</div>
+      <h2>72 ساعة فقط<br><span style="color:var(--gold)">لا تفوّت الفرصة</span></h2>
+      <p style="color:var(--text-muted);font-size:0.95rem;margin-top:10px;position:relative">اشترك في كورس البرمجة من EduRise بسعر لا يتكرر</p>
+
+      <div class="timer-large">
+        <div class="timer-block"><span class="timer-num" id="tl-h">71</span><span class="timer-unit">ساعة</span></div>
+        <span class="timer-sep">:</span>
+        <div class="timer-block"><span class="timer-num" id="tl-m">59</span><span class="timer-unit">دقيقة</span></div>
+        <span class="timer-sep">:</span>
+        <div class="timer-block"><span class="timer-num" id="tl-s">59</span><span class="timer-unit">ثانية</span></div>
+      </div>
+
+      <div class="urgent-price-row">
+        <div class="urgent-price-new">2,000</div>
+        <div>
+          <div class="urgent-price-old">2,500 جنيه</div>
+          <div style="font-size:0.8rem;color:var(--gold-light);margin-top:4px">توفير 500 جنيه</div>
+        </div>
+      </div>
+
+      <p class="urgent-note">لأول <strong>20 مشترك فقط</strong> — احجز مكان طفلك الآن قبل اكتمال العدد 🚀</p>
+
+      <button class="btn-urgent">احجز مكانك الآن ⚡</button>
+
+      <div class="spots-bar">
+        <div class="spots-label">
+          <span>الأماكن المتاحة</span>
+          <span style="color:#FF6B00;font-weight:700">5 أماكن متبقية فقط!</span>
+        </div>
+        <div class="spots-track">
+          <div class="spots-fill" id="spots-fill"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">EduRise</div>
+    <div class="footer-tagline">نبني جيل مستعد للمستقبل — تعليم حقيقي، نتائج ملموسة ✨</div>
+    <div class="footer-bottom">© 2025 EduRise. جميع الحقوق محفوظة.</div>
+  </footer>
+
+</div>
+
+<script>
+  // ─── COUNTDOWN TIMER ───
+  const deadline = new Date(Date.now() + 72 * 60 * 60 * 1000);
+
+  function updateTimers() {
+    const now = Date.now();
+    let diff = Math.max(0, deadline - now);
+
+    const h = Math.floor(diff / 3600000);
+    diff %= 3600000;
+    const m = Math.floor(diff / 60000);
+    diff %= 60000;
+    const s = Math.floor(diff / 1000);
+
+    const pad = n => String(n).padStart(2, '0');
+
+    ['cd-h','tl-h'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = pad(h); });
+    ['cd-m','tl-m'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = pad(m); });
+    ['cd-s','tl-s'].forEach(id => { const el = document.getElementById(id); if(el) el.textContent = pad(s); });
+  }
+
+  updateTimers();
+  setInterval(updateTimers, 1000);
+
+  // ─── INTERSECTION OBSERVER ───
+  const observerOpts = { threshold: 0.12, rootMargin: '0px 0px -40px 0px' };
+
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        const cards = entry.target.parentElement.querySelectorAll('.card');
+        cards.forEach((card, idx) => {
+          setTimeout(() => card.classList.add('visible'), idx * 120);
+        });
+        cardObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOpts);
+
+  const firstCard = document.querySelector('.card');
+  if (firstCard) cardObserver.observe(firstCard);
+
+  const levelObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const items = document.querySelectorAll('.level-item');
+        items.forEach((item, idx) => {
+          setTimeout(() => item.classList.add('visible'), idx * 150);
+        });
+        levelObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOpts);
+
+  const firstLevel = document.querySelector('.level-item');
+  if (firstLevel) levelObserver.observe(firstLevel);
+
+  // ─── SPOTS BAR ───
+  const spotsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          const fill = document.getElementById('spots-fill');
+          if (fill) fill.classList.add('loaded');
+        }, 300);
+        spotsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const urgentSection = document.querySelector('.urgent-section');
+  if (urgentSection) spotsObserver.observe(urgentSection);
+
+  // ─── CARD STAGGER ON LOAD ───
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      const cards = document.querySelectorAll('.card');
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      cards.forEach(card => io.observe(card));
+    }, 100);
+  });
+
+  // ─── NAV SCROLL EFFECT ───
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.background = 'rgba(11,21,38,0.95)';
+    } else {
+      nav.style.background = 'rgba(11,21,38,0.7)';
+    }
+  }, { passive: true });
+
+  // ─── SMOOTH SCROLL ───
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
